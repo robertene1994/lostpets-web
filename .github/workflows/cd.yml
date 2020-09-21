@@ -67,4 +67,3 @@ jobs:
             - name: Deploy application to Heroku
               run: |
                   ls -l
-                  ls -l
