@@ -1,5 +1,5 @@
-import { environment } from "../environments/environment";
-import { config } from "../environments/config";
+import { environment } from '../environments/environment';
+import { config } from '../environments/config';
 
 // API Endpoints
 export const apiUrl = environment.apiUrl;
@@ -13,8 +13,8 @@ export const serviceTimeOutMillis = 5000;
 
 // Messaging Endpoins
 export const messagingUrl = environment.messagingUrl;
-export const messagingUserTopic = "/exchange/chatMessage/userEmail";
-export const messagingUserDestination = "/send/chatMessage/userEmail";
+export const messagingUserTopic = '/exchange/chatMessage/userEmail';
+export const messagingUserDestination = '/send/chatMessage/userEmail';
 
 // Loading Spinner
 export const showSpinnerMillis = 1000;
@@ -31,5 +31,4 @@ export const imageUpdateReloadIntervalMillis = 5000;
 export const imageReloadIntervalMillis = 2500;
 
 // Google Maps API
-export const googleMapsApiKey =
-  config.GOOGLE_MAPS_API_KEY || process.env.GOOGLE_MAPS_API_KEY;
+export const googleMapsApiKey = process.env.GOOGLE_MAPS_API_KEY || config.GOOGLE_MAPS_API_KEY;
