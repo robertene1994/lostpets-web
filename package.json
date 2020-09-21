@@ -6,8 +6,7 @@
     "description": "Web client for LostPets system.",
     "scripts": {
         "ng": "ng",
-        "config": "node ./.scripts/start.js",
-        "poststart": "node ./.scripts/stop.js",
+        "config": "node ./.scripts/config.js",
         "start": "ng serve",
         "build": "npm run config && ng build --prod --base-href / --aot=false --build-optimizer=false",
         "build:docs": "typedoc --out doc src --ignoreCompilerErrors",
@@ -15,7 +14,7 @@
         "build:heroku": "npm run config && ng build --prod --configuration=heroku --base-href / --aot=false --build-optimizer=false",
         "build:ci": "npm run config && ng build --prod --configuration=heroku --base-href / --aot=false --build-optimizer=false",
         "test": "ng test --no-watch --code-coverage",
-        "test:ci": "ng test --configuration=ci --watch=false --code-coverage --source-map true",
+        "test:ci": "npm run config && ng test --configuration=ci --watch=false --code-coverage --source-map true",
         "lint": "ng lint",
         "e2e": "ng e2e",
         "e2e:ci": "ng e2e --configuration=ci",
