@@ -26,6 +26,7 @@ jobs:
               run: npm run test:ci
               env:
                   CI: true
+                  GOOGLE_MAPS_API_KEY: ${{ secrets.GOOGLE_MAPS_API_KEY }}
 
             # - name: E2E
             #   run: npm run e2e
