@@ -1,5 +1,5 @@
 {
-    "name": "lostpets",
+    "name": "lostpets-web",
     "version": "1.0.0",
     "license": "MIT",
     "author": "Robert Stefanita Ene",
@@ -10,7 +10,9 @@
         "build": "ng build --prod --base-href / --aot=false --build-optimizer=false",
         "build-aws": "ng build --prod --configuration aws --base-href / --aot=false --build-optimizer=false",
         "build-heroku": "ng build --prod --configuration heroku --base-href / --aot=false --build-optimizer=false",
+        "build:ci": "ng build --prod --base-href / --sourceMap=false ",
         "test": "ng test --no-watch --code-coverage",
+        "test:ci": "ng test --watch=false --code-coverage --source-map true",
         "lint": "ng lint",
         "e2e": "ng e2e"
     },
