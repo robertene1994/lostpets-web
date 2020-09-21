@@ -3,7 +3,7 @@
     "version": "1.0.0",
     "license": "MIT",
     "author": "Robert Stefanita Ene",
-    "description": "Cliente Web del sistema LostPets.",
+    "description": "Web client for LostPets system.",
     "scripts": {
         "ng": "ng",
         "start": "ng serve",
