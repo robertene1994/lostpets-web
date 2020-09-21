@@ -10,7 +10,7 @@ exports.config = {
     ],
     capabilities: {
         browserName: 'chrome',
-        // binary: require('puppeteer').executablePath(),
+        binary: require('puppeteer').executablePath(),
     },
     directConnect: true,
     baseUrl: 'http://localhost:4200/',
