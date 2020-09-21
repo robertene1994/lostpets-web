@@ -1,0 +1,65 @@
+.users-wrapper {
+    padding: 0;
+}
+
+.users-wrapper>div:not(.pagination-wrapper):nth-of-type(odd) {
+    background-color: rgba(204, 204, 204, .1);
+}
+
+.user-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    padding-top: .5rem;
+    padding-bottom: .5rem;
+    border-radius: .5rem;
+}
+
+.user-wrapper:hover {
+    background-color: rgba(0, 130, 121, .1);
+}
+
+.user-photo {
+    max-width: 60%;
+    display: block;
+    margin: auto;
+    border-radius: .5rem;
+}
+
+.user-info {
+    display: grid;
+    gap: .5rem;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    padding: .5rem .5rem 0 .5rem;
+    align-items: center;
+}
+
+.user-actions {
+    display: flex;
+    justify-content: flex-end;
+    align-self: flex-end;
+    min-height: 38px;
+}
+
+.user-info-text-label {
+    display: block;
+    font-size: calc(.6rem + .4vw);
+    color: gray;
+}
+
+.user-info-text {
+    font-size: calc(.8rem + .4vw);
+}
+
+.user-role-text {
+    text-transform: uppercase;
+}
+
+.disabled-user-status {
+    text-transform: uppercase;
+    color: #FF0000;
+}
+
+.enabled-user-status {
+    text-transform: uppercase;
+    color: #008279;
+}

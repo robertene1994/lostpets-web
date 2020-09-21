@@ -1,0 +1,117 @@
+<div class="col-lg-6 offset-lg-3 col-md-10 offset-md-1 col-sm-12 col-xs-12 signup-wrapper">
+    <img class="logo" src="/assets/logo.svg">
+    <form novalidate>
+        <div class="form-group input-group signup-input-wrapper">
+            <span class="signup-input-text-label">Correo Electrónico</span>
+            <div class="signup-input-item">
+                <div class="input-group-prepend">
+                    <i class="input-group-text fa fa-at"></i>
+                </div>
+                <input type="text"
+                    class="form-control"
+                    name="email"
+                    [class.is-valid]="checkValidEmail()"
+                    [class.is-invalid]="checkInvalidEmail()"
+                    (focusin)="checkUniqueEmail()"
+                    (focusout)="checkUniqueEmail()"
+                    [(ngModel)]="user.email"
+                    [tooltipDisabled]="uniqueEmail && !checkInvalidEmail()"
+                    pTooltip="¡El correo electrónico es obligatorio y debe ser único en el sistema!"
+                    tooltipPosition="bottom"
+                    tooltipStyleClass="input-tooltip-error" />
+            </div>
+        </div>
+        <div class="form-group input-group signup-input-wrapper">
+            <span class="signup-input-text-label">Teléfono</span>
+            <div class="signup-input-item">
+                <div class="input-group-prepend">
+                    <i class="input-group-text fa fa-phone"></i>
+                </div>
+                <input type="number" class="form-control"
+                    [class.is-valid]="checkValidPhone()"
+                    [class.is-invalid]="checkInvalidPhone()"
+                    [(ngModel)]="user.phone"
+                    name="phone"
+                    [tooltipDisabled]="!checkInvalidPhone()"
+                    pTooltip="¡El teléfono es obligatorio y debe ser un número válido!"
+                    tooltipPosition="bottom"
+                    tooltipStyleClass="input-tooltip-error" />
+            </div>
+        </div>
+        <div class="form-group input-group signup-input-wrapper">
+            <span class="signup-input-text-label">Nombre</span>
+            <div class="signup-input-item">
+                <div class="input-group-prepend">
+                    <i class="input-group-text fa fa-user"></i>
+                </div>
+                <input type="text"
+                    class="form-control"
+                    [class.is-valid]="checkValidField(user.firstName)"
+                    [class.is-invalid]="checkEmptyField(user.firstName)"
+                    [(ngModel)]="user.firstName"
+                    name="firstName"
+                    [tooltipDisabled]="!checkEmptyField(user.firstName)"
+                    pTooltip="¡El nombre del usuario es obligatorio!"
+                    tooltipPosition="bottom"
+                    tooltipStyleClass="input-tooltip-error" />
+            </div>
+        </div>
+        <div class="form-group input-group signup-input-wrapper">
+            <span class="signup-input-text-label">Apellidos</span>
+            <div class="signup-input-item">
+                <div class="input-group-prepend">
+                    <i class="input-group-text fa fa-user"></i>
+                </div>
+                <input type="text" class="form-control"
+                    [class.is-valid]="checkValidField(user.lastName)"
+                    [class.is-invalid]="checkEmptyField(user.lastName)"
+                    [(ngModel)]="user.lastName" name="lastName"
+                    [tooltipDisabled]="!checkEmptyField(user.lastName)"
+                    pTooltip="¡Los apellidos del usuario son obligatorios!"
+                    tooltipPosition="bottom"
+                    tooltipStyleClass="input-tooltip-error" />
+            </div>
+        </div>
+        <div class="form-group input-group signup-input-wrapper">
+            <span class="signup-input-text-label">Contraseña</span>
+            <div class="signup-input-item">
+                <div class="input-group-prepend">
+                    <i class="input-group-text fa fa-unlock-alt"></i>
+                </div>
+                <input type="password" class="form-control"
+                    [class.is-valid]="checkValidField(user.password)"
+                    [class.is-invalid]="checkEmptyField(user.password)"
+                    [(ngModel)]="user.password" name="password"
+                    [tooltipDisabled]="!checkEmptyField(user.password)"
+                    pTooltip="¡La contraseña es obligatoria y debe ser una válida, sin espacios en blanco!"
+                    tooltipPosition="bottom"
+                    tooltipStyleClass="input-tooltip-error" />
+            </div>
+        </div>
+        <div class="form-group input-group signup-input-wrapper">
+            <span class="signup-input-text-label">Repetir Contraseña</span>
+            <div class="signup-input-item">
+                <div class="input-group-prepend">
+                    <i class="input-group-text fa fa-unlock-alt"></i>
+                </div>
+                <input type="password" class="form-control"
+                    [class.is-valid]="checkValidField(repeatedPassword)"
+                    [class.is-invalid]="checkEmptyField(repeatedPassword) || !checkPasswords()"
+                    [(ngModel)]="repeatedPassword"
+                    [tooltipDisabled]="checkPasswords()"
+                    pTooltip="¡Repetir la contraseña es obligatorio, y las dos contraseñas proporcionadas deben ser idénticas!"
+                    tooltipPosition="bottom"
+                    tooltipStyleClass="input-tooltip-error"
+                    name="repeatedPassword" />
+            </div>
+        </div>
+        <div class="form-group">
+            <button id="signup-button"
+                class="btn custom-btn-primary"
+                [disabled]="signUpButtonState()"
+                (click)="signUp()">
+                <i class="icon fa fa-user-plus fa-fw"></i>Registrarse
+            </button>
+        </div>
+    </form>
+</div>

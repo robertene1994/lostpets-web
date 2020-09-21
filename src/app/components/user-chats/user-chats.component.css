@@ -1,0 +1,219 @@
+.user-chats-wrapper {
+    display: flex;
+    flex-wrap: nowrap;
+    padding: 0;
+    height: 80vh;
+    overflow-y: hidden;
+    box-shadow: -10px -10px 30px 4px rgba(0, 0, 0, 0.1), 10px 10px 30px 4px rgba(0, 130, 121, 0.4);
+    /* box-shadow: 0 20px 50px rgba(0, 130, 121, 0.7); */
+    /* box-shadow: 5px 5px rgba(0, 98, 90, 0.4), 10px 10px rgba(0, 98, 90, 0.3), 15px 15px rgba(0, 98, 90, 0.2), 20px 20px rgba(0, 98, 90, 0.1), 25px 25px rgba(0, 98, 90, 0.05); */
+}
+
+.chats-wrapper {
+    padding: 0;
+    overflow: auto;
+    display: flex;
+    flex-direction: column;
+    border-right: 1px solid #99cdc9;
+}
+
+.chats-wrapper>div:nth-of-type(odd) {
+    background-color: rgba(204, 204, 204, .1);
+}
+
+.chats-wrapper:hover {
+    cursor: pointer;
+}
+
+.chat-wrapper {
+    display: flex;
+    flex-wrap: nowrap;
+    border-radius: .5rem;
+    padding: 1rem;
+}
+
+.chat-wrapper:not(.selected-chat):hover {
+    background-color: rgba(0, 130, 121, .1) !important;
+    cursor: pointer;
+}
+
+.selected-chat {
+    background-color: rgba(0, 130, 121, .25) !important;
+}
+
+.user-chat-photo {
+    max-width: 15%;
+    display: block;
+    margin-right: .5rem;
+}
+
+.chat-info {
+    overflow: hidden;
+    white-space: nowrap;
+    width: 100%;
+}
+
+.chat-info-first-line {
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: .5rem;
+}
+
+.chat-info-to-user-name {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    font-size: calc(.8rem + .25vw);
+}
+
+.chat-info-last-message-date {
+    font-size: calc(.6rem + .25vw);
+}
+
+.chat-info-second-line {
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: center;
+}
+
+.chat-info-last-message-status {
+    color: #F5A700;
+    font-size: smaller;
+    margin-right: .25rem;
+}
+
+.chat-info-last-message-content {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.chat-info-unread-messages {
+    background-color: #008279;
+    color: #FFFFFF;
+    font-weight: 500;
+    border-radius: 5rem;
+    padding: 0 .5rem;
+    margin-left: auto;
+}
+
+.delivered-message {
+    color: #008279;
+    font-weight: 600;
+}
+
+.chat-detail-wrapper {
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.chat-detail-header {
+    display: flex;
+    flex-wrap: nowrap;
+    background-color: rgba(0, 130, 121, 0.9);
+    align-items: center;
+}
+
+.chat-detail-user-photo {
+    max-width: 5%;
+    display: block;
+    margin: .5rem;
+}
+
+.chat-detail-to-user-name {
+    font-size: calc(.9rem + .25vw);
+    color: #FFFFFF;
+    font-weight: 500;
+}
+
+.chat-detail-close {
+    align-self: end;
+    margin: .5rem .5rem auto auto;
+    font-size: calc(1.1rem + .25vw);
+    color: #FFFFFF;
+}
+
+.chat-detail-close:hover {
+    cursor: pointer;
+    color: #FFD849;
+}
+
+.chat-messages-wrapper {
+    scroll-behavior: smooth;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    overflow-y: auto;
+    overflow-x: hidden;
+    padding: .5rem;
+}
+
+.chat-message-wrapper {
+    display: flex;
+    flex-direction: column;
+    width: fit-content;
+    max-width: 65%;
+    min-width: 10%;
+    border: 1px solid #008279;
+    border-radius: .5rem;
+    margin: .25rem;
+    padding: .25rem;
+}
+
+.user-chat-message {
+    align-self: flex-end;
+    background-color: rgba(240, 240, 240, .3);
+}
+
+.chat-message-info {
+    font-size: calc(.5rem + .25vw);
+    align-self: flex-end;
+    margin-bottom: -.25rem;
+}
+
+.chat-message-content {
+    overflow-wrap: anywhere;
+}
+
+.chat-message-date {
+    color: #BD7800;
+}
+
+.chat-message-status {
+    color: #BD7800;
+    font-size: calc(.45rem + .25vw);
+    margin-left: .25rem;
+}
+
+.send-message-wrapper {
+    padding: 0 .5rem .5rem .5rem;
+    margin-top: auto;
+}
+
+.send-message-wrapper>textarea {
+    resize: none;
+    overflow: hidden;
+    line-height: 1.5;
+}
+
+.send-message-wrapper>button {
+    height: fit-content;
+    align-self: center;
+    margin-left: .5rem;
+}
+
+*::-webkit-scrollbar {
+    width: 6px !important;
+    height: 6px !important;
+}
+
+*::-webkit-scrollbar-thumb {
+    background-color: rgba(0, 0, 0, 0.2);
+}
+
+*::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.1);
+}

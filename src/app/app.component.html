@@ -1,0 +1,112 @@
+<div id="header">
+    <nav class="navbar navbar-expand-lg navbar-dark custom-navbar">
+        <div class="container">
+            <a class="navbar-brand" routerLink="/ads">
+                <i class="icon fa fa-paw fa-fw"></i>LostPets
+            </a>
+            <button class="navbar-toggler" type="button"
+                data-toggle="collapse" data-target="#navbar"
+                aria-controls="navbar" aria-expanded="false"
+                aria-label="Mostrar menú de navegación">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div id="navbar" class="collapse navbar-collapse justify-content-md-center">
+                <ul class="navbar-nav mr-auto"></ul>
+                <ul *ngIf="!userService.isUserLoggedIn()" class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="btn btn-navbar"
+                            id="link-login"
+                            [class.active]="router.url.startsWith('/login')"
+                            routerLink="/login">
+                            <i class="fa fa-sign-in fa-fw"></i>Iniciar Sesión
+                            <span class="sr-only">(current)</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="btn btn-navbar"
+                            id="link-signup"
+                            [class.active]="router.url.startsWith('/signup')"
+                            routerLink="/signup">
+                            <i class="fa fa-user-plus fa-fw"></i>Registrarse
+                        </a>
+                    </li>
+                </ul>
+                <ul *ngIf="userService.isUserLoggedIn()" class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="btn btn-navbar"
+                            id="link-ads"
+                            [class.active]="router.url.startsWith('/ads')"
+                            routerLink="/ads">
+                            <i class="fa fa-list-ul fa-fw"></i>Anuncios
+                        </a>
+                    </li>
+                    <li *ngIf="userService.getLoggedUserSync().role === 'USER'" class="nav-item">
+                        <a class="btn btn-navbar"
+                            id="link-user-ads"
+                            [class.active]="router.url.startsWith('/user-ads')"
+                            routerLink="/user-ads">
+                            <i class="fa fa-list-ol fa-fw"></i>Mis Anuncios
+                        </a>
+                    </li>
+                    <li *ngIf="userService.getLoggedUserSync().role === 'USER'" class="nav-item">
+                        <a class="btn btn-navbar"
+                            id="link-add-ad"
+                            [class.active]="router.url.startsWith('/add-ad')"
+                            (click)="goToAddAd()">
+                            <i class="fa fa-plus fa-fw"></i>Nuevo Anuncio
+                        </a>
+                    </li>
+                    <li *ngIf="userService.getLoggedUserSync().role === 'ADMIN'" class="nav-item">
+                        <a class="btn btn-navbar"
+                            id="link-users"
+                            [class.active]="router.url.startsWith('/users')"
+                            routerLink="/users">
+                            <i class="fa fa-users fa-fw"></i>Usuarios
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="btn btn-navbar"
+                            id="link-user-chats"
+                            [class.active]="router.url.startsWith('/user-chats')"
+                            routerLink="/user-chats">
+                            <i class="fa fa-comments fa-fw"></i>Chats
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="btn btn-navbar"
+                            id="link-user-profile"
+                            [class.active]="router.url.startsWith('/user-profile')"
+                            (click)="goToUserProfile()">
+                            <i class="fa fa-user-circle fa-fw"></i>
+                            {{userService.getLoggedUserSync().firstName}}
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="btn btn-navbar btn-logout"
+                            id="link-logout"
+                            (click)="logOut()">
+                            <i class="fa fa-sign-out fa-fw"></i>Cerrar Sesión
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+</div>
+<p-toast></p-toast>
+<p-toast styleClass="user-messages-toast" key="user-messages"></p-toast>
+<div [hidden]="!getSpinnerService().getSpinner()">
+    <div class="loader-overlay"></div>
+    <div class="loader-centered loader-ring">
+        <div>
+            <img class="loader-logo" src="/assets/logo.svg">
+        </div>
+        <div class="ring"></div>
+        <div class="ring"></div>
+        <div class="ring"></div>
+        <div class="ring"></div>
+    </div>
+</div>
+<div id="body" class="col-lg-10 offset-lg-1 col-md-12 col-sm-12 col-xs-12">
+    <router-outlet></router-outlet>
+</div>

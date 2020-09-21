@@ -1,0 +1,81 @@
+<div *ngIf="!spinnerService.getSpinner()"
+    class="col-lg-10 offset-lg-1 col-md-10 offset-md-1 col-sm-12 col-xs-12 user-chats-wrapper">
+    <div class="col-lg-4 col-md-5 col-sm-5 col-xs-4 chats-wrapper">
+        <div *ngFor="let chat of userChats"
+            class="chat-wrapper"
+            [class.selected-chat]="chat.code === selectedChat?.code"
+            (click)="loadChatMessages(chat)">
+            <img class="user-chat-photo" src="./assets/user-chat-image-placeholder.svg">
+            <div class="chat-info">
+                <div class="chat-info-first-line">
+                    <span class="chat-info-to-user-name">
+                        {{chat?.toUser.lastName}} {{chat?.toUser.firstName}}
+                    </span>
+                    <span class="chat-info-last-message-date"
+                        [class.delivered-message]="chat.lastMessage.fromUser.id !== chat.fromUser.id && chat.lastMessage.messageStatus === 'DELIVERED'">
+                        {{isToday(chat.lastMessage?.date) ? (chat.lastMessage?.date | date:'HH:mm') : (chat.lastMessage?.date | date:'dd/MM/yy')}}
+                    </span>
+                </div>
+                <div class="chat-info-second-line">
+                    <span *ngIf="chat.lastMessage?.toUser.id !== user.id"
+                        class="chat-info-last-message-status"
+                        [ngSwitch]="chat.lastMessage?.messageStatus">
+                        <i *ngSwitchCase="'SENT'" class="fa fa-chevron-up"></i>
+                        <i *ngSwitchCase="'DELIVERED'" class="fa fa-chevron-down"></i>
+                        <i *ngSwitchCase="'READ'" class="fa fa-eye"></i>
+                    </span>
+                    <span class="chat-info-last-message-content"
+                        [class.delivered-message]="chat.lastMessage.fromUser.id !== chat.fromUser.id && chat.lastMessage.messageStatus === 'DELIVERED'">
+                        {{chat.lastMessage?.content}}
+                    </span>
+                    <span *ngIf="chat.unreadMessages > 0"
+                        class="chat-info-unread-messages">{{chat.unreadMessages}}
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div *ngIf="messages" class="col-lg-8 col-md-7 col-sm-7 col-xs-8 chat-detail-wrapper">
+        <div class="chat-detail-header">
+            <img class="chat-detail-user-photo" src="./assets/chat-detail-user-image-placeholder.svg">
+            <span class="chat-detail-to-user-name">
+                {{selectedChat?.toUser.lastName}} {{selectedChat?.toUser.firstName}}
+            </span>
+            <i class="fa fa-times chat-detail-close" (click)="closeChatDetail()"></i>
+        </div>
+        <div id="chat-messages-wrapper" class="chat-messages-wrapper">
+            <div *ngFor="let message of messages"
+                class="chat-message-wrapper"
+                [class.user-chat-message]="message.fromUser.id === user.id">
+                <span class="chat-message-content">{{message.content}}</span>
+                <div class="chat-message-info">
+                    <span class="chat-message-date">{{message.date | date:'HH:mm'}}</span>
+                    <span *ngIf="message.fromUser.id === user.id"
+                        class="chat-message-status"
+                        [ngSwitch]="message.messageStatus">
+                        <i *ngSwitchCase="'SENT'" class="fa fa-chevron-up"></i>
+                        <i *ngSwitchCase="'DELIVERED'" class="fa fa-chevron-down"></i>
+                        <i *ngSwitchCase="'READ'" class="fa fa-eye"></i>
+                    </span>
+                </div>
+            </div>
+        </div>
+        <div class="input-group send-message-wrapper">
+            <textarea
+                id="send-message-text-area"
+                name="message"
+                rows="1" class="form-control"
+                [(ngModel)]="message.content"
+                (keydown.enter)="$event.preventDefault()"
+                (keyup.enter)="sendMessage()"
+                (input)="autoGrowTextArea()">
+            </textarea>
+            <button id="send-message-button"
+                class="btn custom-btn-primary"
+                [disabled]="sendMessageButtonState()"
+                (click)="sendMessage()">
+                <i class="icon fa fa-paper-plane fa-fw"></i>Enviar
+            </button>
+        </div>
+    </div>
+</div>

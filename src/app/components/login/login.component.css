@@ -1,0 +1,44 @@
+.login-wrapper {
+    background: white;
+    text-align: center;
+}
+
+.login-wrapper>.logo {
+    max-width: 40%;
+    height: auto;
+    vertical-align: middle;
+    border-style: none;
+}
+
+.login-wrapper .form-group>button {
+    width: 100%;
+}
+
+.login-input-wrapper {
+    padding: 0;
+    display: flex;
+    flex-wrap: nowrap;
+    flex-direction: column;
+}
+
+.login-input-text-label {
+    display: flex;
+    font-size: calc(.8rem + .25vw);
+    color: gray;
+}
+
+.input-group-prepend>i {
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+}
+
+.login-input-item {
+    padding: 0;
+    display: flex;
+    flex-wrap: nowrap;
+}
+
+.login-input-item>input {
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+}

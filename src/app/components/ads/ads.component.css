@@ -1,0 +1,65 @@
+.ads-wrapper {
+    padding: 0;
+}
+
+.ads-wrapper>div:not(.pagination-wrapper):nth-of-type(odd) {
+    background-color: rgba(204, 204, 204, .1);
+}
+
+.ad-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    padding-top: .5rem;
+    padding-bottom: .5rem;
+    border-radius: .5rem;
+}
+
+.ad-wrapper:hover {
+    background-color: rgba(0, 130, 121, .1);
+    cursor: pointer;
+}
+
+.ad-photo {
+    max-width: 100%;
+    display: block;
+    margin: auto;
+    border-radius: .5rem;
+}
+
+.ad-info {
+    display: grid;
+    gap: .5rem;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    padding: .5rem .5rem 0 .5rem;
+    align-items: center;
+}
+
+.ad-actions {
+    display: flex;
+    justify-content: flex-end;
+    align-self: flex-end;
+}
+
+.ad-actions button {
+    font-size: calc(.4rem + .5vw);
+}
+
+.ad-info-text-label {
+    display: block;
+    font-size: calc(.6rem + .4vw);
+    color: gray;
+}
+
+.ad-info-text {
+    font-size: calc(.8rem + .4vw);
+}
+
+.lost-pet-status {
+    text-transform: uppercase;
+    color: #FF0000;
+}
+
+.found-pet-status {
+    text-transform: uppercase;
+    color: #008279;
+}

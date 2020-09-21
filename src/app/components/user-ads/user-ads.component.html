@@ -1,0 +1,63 @@
+<div *ngIf="!spinnerService.getSpinner()"
+    class="col-lg-10 offset-lg-1 col-md-10 offset-md-1 col-sm-12 col-xs-12 ads-wrapper">
+    <div *ngFor="let ad of pageOfUserAds">
+        <div class="ad-wrapper"
+            [class.disabled-ad]="ad.adStatus === 'DISABLED'"
+            (click)="goToAdDetail(ad)">
+            <div class="col-lg-3 col-md-12 col-sm-12 col-xs-12 p-0">
+                <img class="ad-photo" src="{{ad.photo}}"
+                    (error)="reloadPetPhoto(ad.code)">
+            </div>
+            <div class="col-lg-9 col-md-12 col-sm-12 col-xs-12 ad-info">
+                <div>
+                    <span class="ad-info-text-label">
+                        <i class="fa fa-id-card-o mr-1"></i>Código Anuncio
+                    </span>
+                    <span class="ad-info-text">{{ad.code}}</span>
+                </div>
+                <div>
+                    <span class="ad-info-text-label">
+                        <i class="fa fa-question-circle-o mr-1"></i>Estado Mascota
+                    </span>
+                    <span *ngIf="ad.petStatus === 'LOST'"
+                        class="ad-info-text lost-pet-status">Perdida
+                    </span>
+                    <span *ngIf="ad.petStatus === 'FOUND'"
+                        class="ad-info-text found-pet-status">Encontrada
+                    </span>
+                </div>
+                <div>
+                    <span class="ad-info-text-label">
+                        <i class="fa fa-money mr-1"></i>Recompensa Ofrecida
+                    </span>
+                    <span class="ad-info-text">{{ad.reward}} €</span>
+                </div>
+                <div>
+                    <span class="ad-info-text-label">
+                        <i class="fa fa-paw mr-1"></i>Nombre Mascota
+                    </span>
+                    <span class="ad-info-text">{{ad.pet.name}}</span>
+                </div>
+                <div>
+                    <span class="ad-info-text-label">
+                        <i class="fa fa-calendar mr-1"></i>Fecha Desaparición
+                    </span>
+                    <span class="ad-info-text">{{ad.date | date:'dd.MM.yyyy HH:mm'}}</span>
+                </div>
+                <div *ngIf="ad.user.id === user.id || user.role === 'ADMIN'" class="ad-actions">
+                    <button id="go-to-update-ad-button"
+                        class="btn custom-btn-primary"
+                        (click)="goToUpdateAd(ad);$event.stopPropagation();"
+                        pTooltip="Modificar los datos del anuncio"
+                        tooltipPosition="bottom"
+                        tooltipStyleClass="button-tooltip">
+                        <i class="fa fa-pencil fa-fw"></i>Modificar
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="pagination-wrapper">
+        <jw-pagination [items]="userAds" (changePage)="onChangePage($event)"></jw-pagination>
+    </div>
+</div>

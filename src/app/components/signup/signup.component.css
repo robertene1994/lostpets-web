@@ -1,0 +1,54 @@
+.signup-wrapper {
+    background: white;
+    text-align: center;
+}
+
+.signup-wrapper>.logo {
+    max-width: 40%;
+    height: auto;
+    vertical-align: middle;
+    border-style: none;
+}
+
+.signup-wrapper .form-group>button {
+    width: 100%;
+}
+
+.signup-input-wrapper {
+    padding: 0;
+    display: flex;
+    flex-wrap: nowrap;
+    flex-direction: column;
+}
+
+.signup-input-text-label {
+    display: flex;
+    font-size: calc(.8rem + .25vw);
+    color: gray;
+}
+
+.input-group-prepend>i {
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+}
+
+.signup-input-item {
+    padding: 0;
+    display: flex;
+    flex-wrap: nowrap;
+}
+
+.signup-input-item>input {
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+input[type=number] {
+    -moz-appearance: textfield;
+}

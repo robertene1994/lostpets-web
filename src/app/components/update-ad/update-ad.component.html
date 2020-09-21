@@ -1,0 +1,302 @@
+<div *ngIf="!spinnerService.getSpinner()"
+    class="col-lg-10 offset-lg-1 col-md-10 offset-md-1 col-sm-12 col-xs-12 update-ad-wrapper">
+    <div class="col-lg-4 col-md-6 col-sm-12 col-xs-12 p-0">
+        <img class="update-ad-photo" [src]="petImageUrl">
+    </div>
+    <div class="col-lg-8 col-md-6 col-sm-12 col-xs-12 google-map-wrapper"
+        pTooltip="Arrastre el marcador o haga click en el mapa para modificar la última ubicación conocida de la mascota"
+        tooltipPosition="bottom"
+        tooltipStyleClass="button-tooltip">
+        <agm-map (mapReady)="onMapReady($event)" (mapClick)="onMapClick($event)">
+            <agm-marker [latitude]="ad?.lastSpottedCoords?.latitude"
+                [longitude]="ad?.lastSpottedCoords?.longitude"
+                [markerClickable]="true" [markerDraggable]="true"
+                (dragEnd)="onMarkerDragEnd($event)">
+                <agm-info-window [disableAutoPan]="false" [isOpen]="true">
+                    Ubicacion de la desaparicion de la <strong>{{ad.pet.name ? ad.pet.name : 'mascota'}}</strong>
+                </agm-info-window>
+            </agm-marker>
+            <agm-marker *ngIf="geolocationEnabled"
+                [latitude]="currentGeolocation?.coords?.latitude"
+                [longitude]="currentGeolocation?.coords?.longitude"
+                [iconUrl]="'/assets/geolocation/current-location.png'">
+            </agm-marker>
+            <div id="geolocationControl"
+                class="gogle-map-geolocation"
+                title='Obtener ubicación'
+                (click)="centerOnCurrentLocation()">
+                <div class="gogle-map-geolocation-control"></div>
+            </div>
+        </agm-map>
+    </div>
+    <div class="custom-file">
+        <input id="petImageFile"
+            type="file"
+            class="custom-file-input"
+            [class.is-valid]="petImageUrl"
+            [class.is-invalid]="!petImageUrl"
+            accept=".jpg,.jpeg,.png"
+            (change)="onSelectPetImage($event)"
+            [tooltipDisabled]="petImageUrl"
+            pTooltip="¡La imagen de la mascota es obligatoria, y se admiten únicamente ficheros JPG/JPEG y PNG!"
+            tooltipPosition="bottom"
+            tooltipStyleClass="input-tooltip-error">
+        <label class="custom-file-label" for="petImageFile" data-browse="Elegir">
+            {{petImage ? petImage.name : 'Seleccionar imagen de la mascota perdida...'}}
+        </label>
+    </div>
+    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 update-ad-info-wrapper">
+        <form novalidate>
+            <h1>
+                <i class="fa fa-bullhorn mr-1"></i>Anuncio
+            </h1>
+            <hr class="update-ad-separator">
+            <div class="update-ad-info">
+                <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12 form-group input-group update-ad-pet-status-wrapper">
+                    <span class="update-ad-info-text-label">Estado</span>
+                    <div class="update-ad-info-item-pet-status">
+                        <div class="custom-control custom-radio">
+                            <input id="petStatusFoundRadio"
+                                name="petStatusRadioGroup"
+                                class="custom-control-input"
+                                type="radio"
+                                value="FOUND"
+                                [(ngModel)]="ad.petStatus">
+                            <label class="custom-control-label"
+                                for="petStatusFoundRadio">Encontrada
+                            </label>
+                        </div>
+                        <div class="custom-control custom-radio">
+                            <input id="petStatusLostRadio"
+                                name="petStatusRadioGroup"
+                                class="custom-control-input"
+                                type="radio"
+                                value="LOST"
+                                [(ngModel)]="ad.petStatus">
+                            <label class="custom-control-label"
+                                for="petStatusLostRadio">Perdida
+                            </label>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12 form-group input-group update-ad-info-item-wrapper">
+                    <span class="update-ad-info-text-label">Recompensa Ofrecida</span>
+                    <div class="update-ad-info-item">
+                        <div class="input-group-prepend">
+                            <i class="input-group-text fa fa-money"></i>
+                        </div>
+                        <input name="reward"
+                            type="number"
+                            min="0"
+                            step="0.01"
+                            class="form-control"
+                            [class.is-valid]="checkValidReward()"
+                            [class.is-invalid]="checkInvalidReward()"
+                            [(ngModel)]="ad.reward"
+                            [tooltipDisabled]="checkValidReward()"
+                            pTooltip="¡La recompensa ofrecida es obligatoria y debe ser un valor positivo (99,99)!"
+                            tooltipPosition="bottom"
+                            tooltipStyleClass="input-tooltip-error" />
+                    </div>
+                </div>
+            </div>
+            <div class="update-ad-info">
+                <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12 form-group input-group update-ad-calendar-wrapper">
+                    <span class="update-ad-info-text-label">Fecha Desaparición</span>
+                    <div class="update-ad-info-item">
+                        <div class="input-group-prepend">
+                            <i class="input-group-text fa fa-calendar"></i>
+                        </div>
+                        <p-calendar name="date"
+                            class="update-ad-calendar-input"
+                            [ngModel]="date"
+                            (onSelect)="onSelectAdDate($event)"
+                            [locale]="esCalendar"
+                            [monthNavigator]="true"
+                            [yearNavigator]="true"
+                            yearRange="2015:2030"
+                            [minDate]="minDate"
+                            [maxDate]="maxDate"
+                            dateFormat="dd/mm/yy"
+                            [readonlyInput]="true">
+                        </p-calendar>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12 form-group input-group update-ad-calendar-wrapper">
+                    <span class="update-ad-info-text-label">Hora Desaparición</span>
+                    <div class="update-ad-info-item">
+                        <div class="input-group-prepend">
+                            <i class="input-group-text fa fa-clock-o"></i>
+                        </div>
+                        <p-calendar name="time"
+                            class="update-ad-calendar-input"
+                            [(ngModel)]="date"
+                            [timeOnly]="true"
+                            [readonlyInput]="true"
+                            [class.is-valid]="checkValidTime()"
+                            [class.is-invalid]="checkInvalidTime()"
+                            [tooltipDisabled]="checkValidTime()"
+                            pTooltip="¡La hora de la desaparición debe ser posterior a la antigua fecha, pero anterior al momento actual!"
+                            tooltipPosition="bottom"
+                            tooltipStyleClass="input-tooltip-error">
+                        </p-calendar>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 form-group input-group update-ad-info-item-wrapper">
+                <span class="update-ad-info-text-label">Observaciones</span>
+                <div class="update-ad-info-item">
+                    <div class="input-group-prepend">
+                        <i class="input-group-text fa fa-exclamation-triangle"></i>
+                    </div>
+                    <textarea name="observations"
+                        rows="2"
+                        class="form-control update-ad-info-observations"
+                        [class.is-valid]="checkValidField(ad.observations)"
+                        [class.is-invalid]="checkEmptyField(ad.observations)"
+                        [(ngModel)]="ad.observations"
+                        [tooltipDisabled]="checkValidField(ad.observations)"
+                        pTooltip="¡Las observaciones del anuncio son obligatorias!"
+                        tooltipPosition="bottom"
+                        tooltipStyleClass="input-tooltip-error">
+                    </textarea>
+                </div>
+            </div>
+            <h1>
+                <i class="fa fa-bullhorn mr-1"></i>Mascota
+            </h1>
+            <hr class="update-ad-separator">
+            <div class="update-ad-info">
+                <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12 form-group input-group update-ad-info-item-wrapper">
+                    <span class="update-ad-info-text-label">Nombre</span>
+                    <div class="update-ad-info-item">
+                        <div class="input-group-prepend">
+                            <i class="input-group-text fa fa-id-card-o"></i>
+                        </div>
+                        <input name="name"
+                            type="text"
+                            class="form-control"
+                            [class.is-valid]="checkValidField(ad.pet.name)"
+                            [class.is-invalid]="checkEmptyField(ad.pet.name)"
+                            [(ngModel)]="ad.pet.name"
+                            [tooltipDisabled]="checkValidField(ad.pet.name)"
+                            pTooltip="¡El nombre de la mascota es obligatorio!"
+                            tooltipPosition="bottom"
+                            tooltipStyleClass="input-tooltip-error" />
+                    </div>
+                </div>
+                <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12 form-group input-group update-ad-info-item-wrapper">
+                    <span class="update-ad-info-text-label">Tipo</span>
+                    <div class="update-ad-info-item">
+                        <div class="input-group-prepend">
+                            <i class="input-group-text fa fa-paw"></i>
+                        </div>
+                        <input type="text"
+                            class="form-control"
+                            [class.is-valid]="checkValidField(ad.pet.type)"
+                            [class.is-invalid]="checkEmptyField(ad.pet.type)"
+                            [(ngModel)]="ad.pet.type" name="type"
+                            [tooltipDisabled]="checkValidField(ad.pet.type)"
+                            pTooltip="¡El tipo de la mascota es obligatorio!"
+                            tooltipPosition="bottom"
+                            tooltipStyleClass="input-tooltip-error" />
+                    </div>
+                </div>
+            </div>
+            <div class="update-ad-info">
+                <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12 form-group input-group update-ad-info-item-wrapper">
+                    <span class="update-ad-info-text-label">Raza</span>
+                    <div class="update-ad-info-item">
+                        <div class="input-group-prepend">
+                            <i class="input-group-text fa fa-info"></i>
+                        </div>
+                        <input type="text"
+                            class="form-control"
+                            [class.is-valid]="checkValidField(ad.pet.race)"
+                            [class.is-invalid]="checkEmptyField(ad.pet.race)"
+                            [(ngModel)]="ad.pet.race" name="race"
+                            [tooltipDisabled]="checkValidField(ad.pet.race)"
+                            pTooltip="¡La raza de la mascota es obligatoria!"
+                            tooltipPosition="bottom"
+                            tooltipStyleClass="input-tooltip-error" />
+                    </div>
+                </div>
+                <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12 form-group input-group update-ad-pet-status-wrapper">
+                    <span class="update-ad-info-text-label">Sexo</span>
+                    <div class="update-ad-info-item-pet-status">
+                        <div class="custom-control custom-radio">
+                            <input id="petSexMaleRadio"
+                                name="petSexRadioGroup"
+                                class="custom-control-input"
+                                type="radio"
+                                value="MALE"
+                                [(ngModel)]="ad.pet.sex">
+                            <label class="custom-control-label"
+                                for="petSexMaleRadio">Macho</label>
+                        </div>
+                        <div class="custom-control custom-radio">
+                            <input id="petSexFemaleRadio"
+                                name="petSexRadioGroup"
+                                class="custom-control-input"
+                                type="radio"
+                                value="FEMALE"
+                                [(ngModel)]="ad.pet.sex">
+                            <label class="custom-control-label"
+                                for="petSexFemaleRadio">Hembra</label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="update-ad-info">
+                <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12 form-group input-group update-ad-info-item-wrapper">
+                    <span class="update-ad-info-text-label">Color</span>
+                    <div class="update-ad-info-item">
+                        <div class="input-group-prepend">
+                            <i class="input-group-text fa fa-adjust"></i>
+                        </div>
+                        <input name="colour"
+                            type="text"
+                            class="form-control"
+                            [class.is-valid]="checkValidField(ad.pet.colour)"
+                            [class.is-invalid]="checkEmptyField(ad.pet.colour)"
+                            [(ngModel)]="ad.pet.colour"
+                            [tooltipDisabled]="checkValidField(ad.pet.colour)"
+                            pTooltip="¡El color de la mascota es obligatorio!"
+                            tooltipPosition="bottom"
+                            tooltipStyleClass="input-tooltip-error" />
+                    </div>
+                </div>
+                <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12 form-group input-group update-ad-info-item-wrapper">
+                    <span class="update-ad-info-text-label">Microchip (ID)</span>
+                    <div class="update-ad-info-item">
+                        <div class="input-group-prepend">
+                            <i class="input-group-text fa fa-paw"></i>
+                        </div>
+                        <input name="microchipId"
+                            type="text"
+                            class="form-control"
+                            [class.is-valid]="checkValidField(ad.pet.microchipId)"
+                            [class.is-invalid]="checkEmptyField(ad.pet.microchipId)"
+                            [(ngModel)]="ad.pet.microchipId"
+                            [tooltipDisabled]="checkValidField(ad.pet.microchipId)"
+                            pTooltip="¡El ID del microchip de la mascota es obligatorio!"
+                            tooltipPosition="bottom"
+                            tooltipStyleClass="input-tooltip-error" />
+                    </div>
+                </div>
+            </div>
+            <hr class="update-ad-separator">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 update-ad-actions">
+                <button id="update-ad-button"
+                    class="btn custom-btn-primary"
+                    [disabled]="updateAdButtonState()"
+                    (click)="updateAd()"
+                    pTooltip="Guardar los nuevos datos del anuncio"
+                    tooltipPosition="top"
+                    tooltipStyleClass="button-tooltip">
+                    <i class="icon fa fa-floppy-o fa-fw"></i>Guardar
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

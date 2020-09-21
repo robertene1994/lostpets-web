@@ -1,0 +1,143 @@
+<div *ngIf="!spinnerService.getSpinner()"
+    class="col-lg-6 offset-lg-3 col-md-10 offset-md-1 col-sm-12 col-xs-12 user-profile-wrapper">
+    <form novalidate>
+        <div class="form-group input-group user-profile-input-wrapper">
+            <span class="user-profile-input-text-label">Correo Electrónico</span>
+            <div class="user-profile-input-item">
+                <div class="input-group-prepend">
+                    <i class="input-group-text fa fa-at"></i>
+                </div>
+                <input name="email"
+                    type="text"
+                    class="form-control"
+                    [class.is-valid]="checkValidEmail()"
+                    [class.is-invalid]="checkInvalidEmail()"
+                    (focusin)="checkUniqueEmail()"
+                    (focusout)="checkUniqueEmail()"
+                    [(ngModel)]="user.email"
+                    [tooltipDisabled]="!checkInvalidEmail()"
+                    pTooltip="¡El correo electrónico es obligatorio y debe ser único en el sistema!"
+                    tooltipPosition="bottom"
+                    tooltipStyleClass="input-tooltip-error" />
+            </div>
+        </div>
+        <div class="form-group input-group user-profile-input-wrapper">
+            <span class="user-profile-input-text-label">Teléfono</span>
+            <div class="user-profile-input-item">
+                <div class="input-group-prepend">
+                    <i class="input-group-text fa fa-phone"></i>
+                </div>
+                <input name="phone"
+                    type="number"
+                    class="form-control"
+                    [class.is-valid]="checkValidPhone()"
+                    [class.is-invalid]="checkInvalidPhone()"
+                    [(ngModel)]="user.phone"
+                    [tooltipDisabled]="!checkInvalidPhone()"
+                    pTooltip="¡El teléfono es obligatorio y debe ser un número válido!"
+                    tooltipPosition="bottom"
+                    tooltipStyleClass="input-tooltip-error" />
+            </div>
+        </div>
+        <div class="form-group input-group user-profile-input-wrapper">
+            <span class="user-profile-input-text-label">Nombre</span>
+            <div class="user-profile-input-item">
+                <div class="input-group-prepend">
+                    <i class="input-group-text fa fa-user"></i>
+                </div>
+                <input name="firstName"
+                    type="text"
+                    class="form-control"
+                    [class.is-valid]="checkValidField(user.firstName)"
+                    [class.is-invalid]="checkEmptyField(user.firstName)"
+                    [(ngModel)]="user.firstName"
+                    [tooltipDisabled]="!checkEmptyField(user.firstName)"
+                    pTooltip="¡El nombre del usuario es obligatorio!"
+                    tooltipPosition="bottom"
+                    tooltipStyleClass="input-tooltip-error" />
+            </div>
+        </div>
+        <div class="form-group input-group user-profile-input-wrapper">
+            <span class="user-profile-input-text-label">Apellidos</span>
+            <div class="user-profile-input-item">
+                <div class="input-group-prepend">
+                    <i class="input-group-text fa fa-user"></i>
+                </div>
+                <input name="lastName"
+                    type="text"
+                    class="form-control"
+                    [class.is-valid]="checkValidField(user.lastName)"
+                    [class.is-invalid]="checkEmptyField(user.lastName)"
+                    [(ngModel)]="user.lastName"
+                    [tooltipDisabled]="!checkEmptyField(user.lastName)"
+                    pTooltip="¡Los apellidos del usuario son obligatorios!"
+                    tooltipPosition="bottom"
+                    tooltipStyleClass="input-tooltip-error" />
+            </div>
+        </div>
+        <div class="form-group input-group user-profile-input-wrapper">
+            <span class="user-profile-input-text-label">Contraseña Antigua</span>
+            <div class="user-profile-input-item">
+                <div class="input-group-prepend">
+                    <i class="input-group-text fa fa-unlock-alt"></i>
+                </div>
+                <input name="oldPassword"
+                    type="password"
+                    class="form-control"
+                    [class.is-valid]="checkValidOldPassword()"
+                    [class.is-invalid]="checkInvalidOldPassword()"
+                    (focusin)="checkOldPassword()"
+                    (focusout)="checkOldPassword()"
+                    [(ngModel)]="account.password"
+                    [tooltipDisabled]="!checkInvalidOldPassword()"
+                    pTooltip="¡La contraseña antigua es obligatoria y debe ser válida!"
+                    tooltipPosition="bottom"
+                    tooltipStyleClass="input-tooltip-error" />
+            </div>
+        </div>
+        <div class="form-group input-group user-profile-input-wrapper">
+            <span class="user-profile-input-text-label">Contraseña Nueva</span>
+            <div class="user-profile-input-item">
+                <div class="input-group-prepend">
+                    <i class="input-group-text fa fa-unlock-alt"></i>
+                </div>
+                <input name="password"
+                    type="password"
+                    class="form-control"
+                    [class.is-valid]="checkValidField(user.password)"
+                    [class.is-invalid]="checkEmptyField(user.password)"
+                    [(ngModel)]="user.password"
+                    [tooltipDisabled]="!checkEmptyField(user.password)"
+                    pTooltip="¡La contraseña es obligatoria y debe ser una válida, sin espacios en blanco!"
+                    tooltipPosition="bottom"
+                    tooltipStyleClass="input-tooltip-error" />
+            </div>
+        </div>
+        <div class="form-group input-group user-profile-input-wrapper">
+            <span class="user-profile-input-text-label">Repetir Contraseña Nueva</span>
+            <div class="user-profile-input-item">
+                <div class="input-group-prepend">
+                    <i class="input-group-text fa fa-unlock-alt"></i>
+                </div>
+                <input name="repeatedPassword"
+                    type="password"
+                    class="form-control"
+                    [class.is-valid]="checkValidField(repeatedPassword)"
+                    [class.is-invalid]="checkEmptyField(repeatedPassword) || !checkPasswords()"
+                    [(ngModel)]="repeatedPassword"
+                    [tooltipDisabled]="checkPasswords()"
+                    pTooltip="¡Repetir la contraseña es obligatorio, y las dos contraseñas proporcionadas deben ser idénticas!"
+                    tooltipPosition="bottom"
+                    tooltipStyleClass="input-tooltip-error" />
+            </div>
+        </div>
+        <div class="form-group">
+            <button id="update-user-button"
+                class="btn custom-btn-primary"
+                [disabled]="updateUserButtonState()"
+                (click)="updateUser()">
+                <i class="icon fa fa-floppy-o fa-fw"></i>Guardar
+            </button>
+        </div>
+    </form>
+</div>

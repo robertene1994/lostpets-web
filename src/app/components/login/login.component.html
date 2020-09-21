@@ -1,0 +1,49 @@
+<div class="col-lg-6 offset-lg-3 col-md-10 offset-md-1 col-sm-12 col-xs-12 login-wrapper">
+    <img class="logo" src="/assets/logo.svg">
+    <form novalidate>
+        <div class="form-group input-group login-input-wrapper">
+            <span class="login-input-text-label">Correo Electrónico</span>
+            <div class="login-input-item">
+                <div class="input-group-prepend">
+                    <i class="input-group-text fa fa-at"></i>
+                </div>
+                <input name="email"
+                    type="email"
+                    class="form-control"
+                    [class.is-valid]="checkValidEmail()"
+                    [class.is-invalid]="checkInvalidEmail()"
+                    [(ngModel)]="account.email"
+                    [tooltipDisabled]="!checkInvalidEmail()"
+                    pTooltip="¡El correo electrónico es obligatorio para iniciar sesión en el sistema y debe ser uno válido!"
+                    tooltipPosition="bottom"
+                    tooltipStyleClass="input-tooltip-error">
+            </div>
+        </div>
+        <div class="form-group input-group login-input-wrapper">
+            <span class="login-input-text-label">Contraseña</span>
+            <div class="login-input-item">
+                <div class="input-group-prepend">
+                    <i class="input-group-text fa fa-unlock"></i>
+                </div>
+                <input type="password"
+                    name="password"
+                    class="form-control"
+                    [class.is-valid]="!checkValidField(account.password)"
+                    [class.is-invalid]="checkEmptyField(account.password)"
+                    [(ngModel)]="account.password"
+                    [tooltipDisabled]="!checkEmptyField(account.password)"
+                    pTooltip="¡La contraseña es obligatoria para iniciar sesión en el sistema!"
+                    tooltipPosition="bottom"
+                    tooltipStyleClass="input-tooltip-error">
+            </div>
+        </div>
+        <div class="form-group">
+            <button id="login-button"
+                class="btn custom-btn-primary"
+                [disabled]="logInButtonState()"
+                (click)="logIn()">
+                <i class="fa fa-sign-in fa-fw"></i>Iniciar Sesión
+            </button>
+        </div>
+    </form>
+</div>

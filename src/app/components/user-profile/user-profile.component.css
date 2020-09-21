@@ -1,0 +1,47 @@
+.user-profile-wrapper {
+    background: white;
+    text-align: center;
+}
+
+.user-profile-wrapper .form-group>button {
+    width: 100%;
+}
+
+.user-profile-input-wrapper {
+    padding: 0;
+    display: flex;
+    flex-wrap: nowrap;
+    flex-direction: column;
+}
+
+.user-profile-input-text-label {
+    display: flex;
+    font-size: calc(.8rem + .25vw);
+    color: gray;
+}
+
+.input-group-prepend>i {
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+}
+
+.user-profile-input-item {
+    padding: 0;
+    display: flex;
+    flex-wrap: nowrap;
+}
+
+.user-profile-input-item>input {
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+input[type=number] {
+    -moz-appearance: textfield;
+}

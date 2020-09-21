@@ -1,0 +1,123 @@
+/********************************
+************* NAVBAR ************
+********************************/
+
+.custom-navbar {
+    background-color: rgba(0, 130, 121, 0.9);
+}
+
+.custom-navbar .navbar-toggler-icon {
+    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(255, 255, 255, 1)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E");
+}
+
+.custom-navbar .navbar-toggler {
+    border-color: white;
+}
+
+.custom-navbar .container {
+    padding: 0;
+}
+
+.btn-navbar {
+    font-weight: 350;
+    color: #FFFFFF;
+    border-color: #FFFFFF;
+    border-radius: 20px;
+    margin: .25rem;
+}
+
+.btn-navbar:hover,
+.btn-navbar.active {
+    color: #008279;
+    background-color: #FFFFFF;
+}
+
+.btn-navbar:focus {
+    outline: 0;
+    box-shadow: none;
+}
+
+.btn-logout {
+    font-weight: 450;
+    color: #FFD849;
+    border-color: #FFD849;
+}
+
+.btn-logout:hover {
+    border-color: #F5A700;
+    color: #FFFFFF;
+    background-color: #F5A700;
+}
+
+
+/********************************
+************ LOADER *************
+********************************/
+
+.loader-overlay {
+    opacity: 0.5;
+    padding: 0;
+    background-color: #ccc;
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0px;
+    left: 0px;
+    z-index: 55;
+}
+
+.loader-centered {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    z-index: 60;
+    transform: translate(-50%, -50%);
+}
+
+.loader-logo {
+    max-width: 50%;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.loader-ring {
+    width: 116px;
+    height: 116px;
+}
+
+.loader-ring div.ring {
+    box-sizing: border-box;
+    display: block;
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    margin: 8px;
+    border: 8px solid #F5A700;
+    border-radius: 50%;
+    animation: loader-ring 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
+    border-color: #F5A700 transparent transparent transparent;
+}
+
+.loader-ring div.ring:nth-child(1) {
+    animation-delay: -0.45s;
+}
+
+.loader-ring div.ring:nth-child(2) {
+    animation-delay: -0.3s;
+}
+
+.loader-ring div.ring:nth-child(3) {
+    animation-delay: -0.15s;
+}
+
+@keyframes loader-ring {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
