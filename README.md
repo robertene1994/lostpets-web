@@ -1,4 +1,4 @@
-# Personal Page
+# LostPets: Lost Pets Ads System
 
 This is a Web application for lost pets ads (my master's thesis) built with Angular.  
 It is available at [LostPets](https://lostpets-web.herokuapp.com).
