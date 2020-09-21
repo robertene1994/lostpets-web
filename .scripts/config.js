@@ -19,7 +19,7 @@ if (process.env.GOOGLE_MAPS_API_KEY) {
     });
     const targetPath = 'src/environments/environment.ts';
     fs.readFile(targetPath, 'utf8', (_err, data) => {
-        let formatted = data.split('\n').slice(0, 1).join('\n');
+        let formatted = data.split('\n').splice(2, data.split('\n').length - 1).join('\n');
         formatted = formatted.replace('googleMaps.googleMapsApiKey', process.env.GOOGLE_MAPS_API_KEY);
         fs.writeFile(targetPath, formatted, 'utf8', (err) => {
             if (err)
