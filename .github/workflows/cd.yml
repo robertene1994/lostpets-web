@@ -37,7 +37,7 @@ jobs:
             - name: Archive build
               uses: actions/upload-artifact@v2
               with:
-                  name: dist
+                  name: build
                   path: static
 
             - name: Archive code coverage result
@@ -56,8 +56,8 @@ jobs:
             - name: Download build
               uses: actions/download-artifact@v2
               with:
-                  name: dist
-                  path: dist
+                  name: build
+                  path: build
 
             - name: Deploy application to Heroku
               uses: akhileshns/heroku-deploy@v3.5.6
@@ -65,4 +65,4 @@ jobs:
                   heroku_api_key: ${{ secrets.HEROKU_API_KEY }}
                   heroku_app_name: ${{ secrets.HEROKU_APP_NAME }}
                   heroku_email: ${{ secrets.HEROKU_EMAIL }}
-                  appdir: dist
+                  appdir: build
