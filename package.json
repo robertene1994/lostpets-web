@@ -17,7 +17,7 @@
         "test:ci": "npm run config && ng test --configuration=ci --watch=false --code-coverage --source-map true",
         "lint": "ng lint",
         "e2e": "ng e2e",
-        "e2e:ci": "ng e2e --configuration=ci",
+        "e2e:ci": "ng e2e",
         "prestop": "node ./.scripts/stop.js",
         "postinstall": "webdriver-manager update --standalone false --gecko false --versions.chrome 76.0.3809.68"
     },
