@@ -11,6 +11,9 @@ exports.config = {
     capabilities: {
         browserName: 'chrome',
         binary: require('puppeteer').executablePath(),
+        chromeOptions: {
+            args: ['--headless', '--no-sandbox', '--disable-gpu'],
+        },
     },
     directConnect: true,
     baseUrl: 'http://localhost:4200/',

@@ -1,5 +1,4 @@
 const fs = require('fs');
-const propertiesReader = require('properties-reader');
 
 const targetPaths = [
     'src/environments/environment.prod.ts',
@@ -17,20 +16,11 @@ if (process.env.GOOGLE_MAPS_API_KEY) {
             });
         });
     });
+
     const targetPath = 'src/environments/environment.ts';
     fs.readFile(targetPath, 'utf8', (_err, data) => {
         let formatted = data.split('\n').splice(2, data.split('\n').length - 1).join('\n');
         formatted = formatted.replace('googleMaps.googleMapsApiKey', undefined);
-        fs.writeFile(targetPath, formatted, 'utf8', (err) => {
-            if (err)
-                return console.log(err);
-        });
-    });
-} else {
-    const googleMapsApiKey = propertiesReader('.env').get('GOOGLE_MAPS_API_KEY');
-    const targetPath = 'src/environments/environment.ts';
-    fs.readFile(targetPath, 'utf8', (_err, data) => {
-        const formatted = data.replace('GOOGLE_MAPS_API_KEY', googleMapsApiKey);
         fs.writeFile(targetPath, formatted, 'utf8', (err) => {
             if (err)
                 return console.log(err);
