@@ -31,3 +31,4 @@ export const imageReloadIntervalMillis = 2500;
 
 // Google Maps API
 export let googleMapsApiKey = environment.googleMapsApiKey;
+console.log(googleMapsApiKey);

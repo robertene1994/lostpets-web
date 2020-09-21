@@ -6,8 +6,9 @@
     "description": "Web client for LostPets system.",
     "scripts": {
         "ng": "ng",
-        "start": "ng serve",
-        "preinstall": "node ./.scripts/config.js",
+        "prestart": "node ./.scripts/start.js",
+        "poststart": "node ./.scripts/stop.js",
+        "start": "ng serve & sleep 10s && npm run poststart",
         "build": "ng build --prod --base-href / --aot=false --build-optimizer=false",
         "build:docs": "typedoc --out doc src --ignoreCompilerErrors",
         "build:aws": "&& ng build --prod --configuration=aws --base-href / --aot=false --build-optimizer=false",
@@ -18,6 +19,7 @@
         "lint": "ng lint",
         "e2e": "ng e2e",
         "e2e:ci": "ng e2e --configuration=ci",
+        "prestop": "node ./.scripts/stop.js",
         "postinstall": "webdriver-manager update --standalone false --gecko false --versions.chrome 76.0.3809.68"
     },
     "private": true,
@@ -41,7 +43,7 @@
         "net": "1.0.2",
         "primeicons": "2.0.0",
         "primeng": "8.1.1",
-        "process": "0.11.10",
+        "properties-reader": "2.1.1",
         "rxjs": "~6.4.0",
         "stompjs": "2.3.3",
         "tslib": "^1.10.0",
