@@ -31,12 +31,3 @@ export const imageReloadIntervalMillis = 2500;
 
 // Google Maps API
 export let googleMapsApiKey = environment.googleMapsApiKey;
-// if (process.env.GOOGLE_MAPS_API_KEY) {
-//     googleMapsApiKey = process.env.GOOGLE_MAPS_API_KEY;
-// } else {
-//     googleMapsApiKey = require('../environments/config').GOOGLE_MAPS_API_KEY;
-// }
-// console.log(process.env.GOOGLE_MAPS_API_KEY);
-// console.log(googleMapsApiKey);
-
-console.log(environment.googleMapsApiKey);
