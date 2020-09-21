@@ -22,10 +22,10 @@ jobs:
             - name: Install dependencies
               run: npm ci
 
-            # - name: Test
-            #   run: npm run test:ci
-            #   env:
-            #       CI: true
+            - name: Test
+              run: npm run test:ci
+              env:
+                  CI: true
 
             # - name: E2E
             #   run: npm run e2e
