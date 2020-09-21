@@ -6,7 +6,7 @@ on:
             - master
 
 jobs:
-    build-and-test:
+    build:
         name: Build and Test
         runs-on: ubuntu-latest
 
@@ -28,18 +28,24 @@ jobs:
                   CI: true
                   GOOGLE_MAPS_API_KEY: ${{ secrets.GOOGLE_MAPS_API_KEY }}
 
+            - name: E2E
+              run: npm run e2e:ci
+              env:
+                  CI: true
+
             - name: Build
               run: npm run build:ci
               env:
                   GOOGLE_MAPS_API_KEY: ${{ secrets.GOOGLE_MAPS_API_KEY }}
 
             - name: Archive build
+              if: success()
               uses: actions/upload-artifact@v2
               with:
                   name: dist
-                  path: static
-
+                  path: dist
             - name: Archive code coverage result
+              if: success()
               uses: actions/upload-artifact@v2
               with:
                   name: coverage
