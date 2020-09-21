@@ -7,7 +7,7 @@
     "scripts": {
         "ng": "ng",
         "start": "ng serve",
-        "config": "ts-node -O '{\"module\": \"commonjs\"}' ./config.index.ts",
+        "config": "node ./.scripts/config.js",
         "build": "npm run config && ng build --prod --base-href / --aot=false --build-optimizer=false",
         "build:docs": "typedoc --out doc src --ignoreCompilerErrors",
         "build:aws": "npm run config && ng build --prod --configuration=aws --base-href / --aot=false --build-optimizer=false",
