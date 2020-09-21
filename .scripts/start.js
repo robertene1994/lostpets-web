@@ -27,16 +27,4 @@ if (process.env.GOOGLE_MAPS_API_KEY) {
                 return console.log(err);
         });
     });
-
-    setTimeout(() => {
-        fs.readFile(targetPath, 'utf8', (_err, data) => {
-            console.log(data);
-            const formatted = data.replace(/AI.*Bo/g, 'GOOGLE_MAPS_API_KEY');
-            console.log(formatted);
-            fs.writeFile(targetPath, formatted, 'utf8', (err) => {
-                if (err)
-                    return console.log(err);
-            });
-        });
-    }, 20000);
 }
