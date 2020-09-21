@@ -11,11 +11,12 @@
         "build:docs": "typedoc --out doc src --ignoreCompilerErrors",
         "build:aws": "ng build --prod --configuration aws --base-href / --aot=false --build-optimizer=false",
         "build:heroku": "ng build --prod --configuration heroku --base-href / --aot=false --build-optimizer=false",
-        "build:ci": "ng build --prod --base-href / --aot=false --build-optimizer=false --sourceMap=false ",
+        "build:ci": "ng build --prod --configuration heroku --base-href / --aot=false --build-optimizer=false --sourceMap=false ",
         "test": "ng test --no-watch --code-coverage",
-        "test:ci": "ng test --watch=false --code-coverage --source-map true",
+        "test:ci": "ng test --configuration ci --watch=false --code-coverage --source-map true",
         "lint": "ng lint",
-        "e2e": "ng e2e"
+        "e2e": "ng e2e",
+        "e2e:ci": "ng e2e --configuration ci"
     },
     "private": true,
     "dependencies": {
