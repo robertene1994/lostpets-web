@@ -9,7 +9,7 @@
 /node_modules
 
 # config
-/src/environments/config.ts
+/src/environments/config.js
 .env
 
 # profiling files
