@@ -69,6 +69,9 @@ jobs:
                   HEROKU_API_KEY: ${{ secrets.HEROKU_API_KEY }}
                   HEROKU_APP_NAME: ${{ secrets.HEROKU_APP_NAME }}
               run: |
-                  cd build
-                  git init
-                  git push --force https://heroku:$HEROKU_API_TOKEN@git.heroku.com/$HEROKU_APP_NAME.git origin/master:master
+                  git clone https://git.heroku.com/$HEROKU_APP_NAME.git
+                  rm -r $HEROKU_APP_NAME/dist
+                  cp -r build/dist/* $HEROKU_APP_NAME/dist
+                  git add .
+                  git commit "Release"
+                  git push --force https://heroku:$HEROKU_API_KEY@git.heroku.com/$HEROKU_APP_NAME.git master
