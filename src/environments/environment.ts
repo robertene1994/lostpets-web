@@ -1,5 +1,8 @@
+import { googleMaps } from './google-maps.environment';
+
 export const environment = {
     production: false,
     apiUrl: 'http://172.16.12.54:8080',
     messagingUrl: 'ws://172.16.12.54:8080/lostpets-ws/websocket',
+    ...googleMaps,
 };
