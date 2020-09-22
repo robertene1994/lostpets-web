@@ -1,8 +1,4 @@
 #!/bin/bash
-echo $HEROKU_API_KEY > ~/.netrc
-echo $HEROKU_API_KEY > .netrc
-cat ~/.netrc
-heroku whoami
 cd build
 ls -l
 git init
