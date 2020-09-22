@@ -1,15 +1,17 @@
 #!/bin/bash
-echo "machine git.heroku.com" > ~.netrc
-echo "login $HEROKU_EMAIL" > ~.netrc
-echo "password $HEROKU_API_KEY" > ~~netrc
-cat .netrc
-git config --global --list
-git config --global user.name "$HEROKU_USERNAME"
-git config --global user.email "$HEROKU_EMAIL"
-git config --global --list
+# echo "machine git.heroku.com" > ~.netrc
+# echo "login $HEROKU_EMAIL" > ~.netrc
+# echo "password $HEROKU_API_KEY" > ~~netrc
+# cat .netrc
+# git config --global --list
+# git config --global user.name "$HEROKU_USERNAME"
+# git config --global user.email "$HEROKU_EMAIL"
+# git config --global --list
+git clone  https://git.heroku.com/$HEROKU_APP_NAME.git remote
+rm -rfv build/dist/*
+cp -r build/dist/* remote/dist/
 cd build
 ls -l
-git init
 git add .
 git commit -m "Release"
-# git push --force https://heroku:$HEROKU_API_KEY@git.heroku.com/$HEROKU_APP_NAME.git master
+git push --force https://heroku:$HEROKU_API_KEY@git.heroku.com/$HEROKU_APP_NAME.git master
