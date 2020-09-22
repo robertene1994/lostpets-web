@@ -60,11 +60,12 @@ jobs:
                   path: build
 
             - name: Deploy to Heroku
+              shell: bash
               env:
                   heroku_api_key: ${{ secrets.HEROKU_API_KEY }}
                   heroku_app_name: ${{ secrets.HEROKU_APP_NAME }}
                   heroku_email: ${{ secrets.HEROKU_EMAIL }}
-              run: sh "bash ./.scripts/deploy.sh"
+              run: ./.scripts/deploy.sh
 
             # - name: Deploy to Heroku
             #   uses: akhileshns/heroku-deploy@v3.5.6
