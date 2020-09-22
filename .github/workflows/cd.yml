@@ -59,25 +59,25 @@ jobs:
                   name: build
                   path: build
 
-            - name: Deploy to Heroku
-              shell: bash
-              env:
-                  heroku_api_key: ${{ secrets.HEROKU_API_KEY }}
-                  heroku_app_name: ${{ secrets.HEROKU_APP_NAME }}
-                  heroku_email: ${{ secrets.HEROKU_EMAIL }}
-                  heroku_username: ${{ secrets.HEROKU_USERNAME }}
-              run: |
-                  chmod u+w ~
-                  chmod +rx ./.scripts/deploy.sh
-                  ./.scripts/deploy.sh
-
             # - name: Deploy to Heroku
-            #   uses: akhileshns/heroku-deploy@v3.5.6
-            #   with:
+            #   shell: bash
+            #   env:
             #       heroku_api_key: ${{ secrets.HEROKU_API_KEY }}
             #       heroku_app_name: ${{ secrets.HEROKU_APP_NAME }}
             #       heroku_email: ${{ secrets.HEROKU_EMAIL }}
-            #       appdir: build
+            #       heroku_username: ${{ secrets.HEROKU_USERNAME }}
+            #   run: |
+            #       chmod u+w ~
+            #       chmod +rx ./.scripts/deploy.sh
+            #       ./.scripts/deploy.sh
+
+            - name: Deploy to Heroku
+              uses: akhileshns/heroku-deploy@v3.5.6
+              with:
+                  heroku_api_key: ${{ secrets.HEROKU_API_KEY }}
+                  heroku_app_name: ${{ secrets.HEROKU_APP_NAME }}
+                  heroku_email: ${{ secrets.HEROKU_EMAIL }}
+                  appdir: build
 
             # - name: Deploy to Heroku
             #   uses: cpina/github-action-push-to-another-repository@master
