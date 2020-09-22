@@ -2,6 +2,7 @@
 echo "machine git.heroku.com" > ~/.netrc
 echo "login $HEROKU_EMAIL" > ~/.netrc
 echo "password $HEROKU_API_KEY" > ~/.netrc
+cat ~/.netrc
 cd build
 ls -l
 git init
