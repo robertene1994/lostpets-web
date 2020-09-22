@@ -4,9 +4,9 @@
 # echo "password $HEROKU_API_KEY" > ~~netrc
 # cat .netrc
 # git config --global --list
-# git config --global user.name "$HEROKU_USERNAME"
-# git config --global user.email "$HEROKU_EMAIL"
-# git config --global --list
+git config user.name "$HEROKU_USERNAME"
+git config user.email "$HEROKU_EMAIL"
+git config --list
 git clone  https://git.heroku.com/$HEROKU_APP_NAME.git remote
 rm -rfv remote/dist/*
 cp -r build/dist/* remote/dist/
