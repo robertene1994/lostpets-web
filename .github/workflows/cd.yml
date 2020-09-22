@@ -67,6 +67,7 @@ jobs:
                   heroku_email: ${{ secrets.HEROKU_EMAIL }}
                   heroku_username: ${{ secrets.HEROKU_USERNAME }}
               run: |
+                  chmod u+w ~
                   chmod +rx ./.scripts/deploy.sh
                   ./.scripts/deploy.sh
 
