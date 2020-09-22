@@ -56,22 +56,24 @@ jobs:
                   name: build
                   path: build
 
-            # - name: Deploy application to Heroku
-            #   uses: akhileshns/heroku-deploy@v3.5.6
-            #   with:
-            #       heroku_api_key: ${{ secrets.HEROKU_API_KEY }}
-            #       heroku_app_name: ${{ secrets.HEROKU_APP_NAME }}
-            #       heroku_email: ${{ secrets.HEROKU_EMAIL }}
-            #       appdir: build
-
             - name: Deploy application to Heroku
-              env:
-                  HEROKU_API_KEY: ${{ secrets.HEROKU_API_KEY }}
-                  HEROKU_APP_NAME: ${{ secrets.HEROKU_APP_NAME }}
-              run: |
-                  git clone https://git.heroku.com/$HEROKU_APP_NAME.git
-                  rm -r $HEROKU_APP_NAME/dist
-                  cp -r build/dist/* $HEROKU_APP_NAME/dist
-                  git add .
-                  git commit "Release"
-                  git push --force https://heroku:$HEROKU_API_KEY@git.heroku.com/$HEROKU_APP_NAME.git master
+              uses: akhileshns/heroku-deploy@v3.5.6
+              with:
+                  heroku_api_key: ${{ secrets.HEROKU_API_KEY }}
+                  heroku_app_name: ${{ secrets.HEROKU_APP_NAME }}
+                  heroku_email: ${{ secrets.HEROKU_EMAIL }}
+                  appdir: build
+
+            # - name: Deploy to Heroku
+            #   env:
+            #       HEROKU_API_KEY: ${{ secrets.HEROKU_API_KEY }}
+            #       HEROKU_APP_NAME: ${{ secrets.HEROKU_APP_NAME }}
+            #   run: |
+            #     heroku
+            # run: |
+            #     git clone https://git.heroku.com/$HEROKU_APP_NAME.git
+            #     rm -r $HEROKU_APP_NAME/dist
+            #     cp -r build/dist/* $HEROKU_APP_NAME/dist
+            #     git add .
+            #     git commit "Release"
+            #     git push --force https://heroku:$HEROKU_API_KEY@git.heroku.com/$HEROKU_APP_NAME.git master
