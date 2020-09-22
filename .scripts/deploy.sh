@@ -8,7 +8,7 @@
 # git config --global user.email "$HEROKU_EMAIL"
 # git config --global --list
 git clone  https://git.heroku.com/$HEROKU_APP_NAME.git remote
-rm -rfv build/dist/*
+rm -rfv remote/dist/*
 cp -r build/dist/* remote/dist/
 cd build
 ls -l
