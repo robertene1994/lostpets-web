@@ -62,6 +62,7 @@ jobs:
                   cd build
                   git init
                   ls -l
+                  cd ..
 
             - name: Deploy to Heroku
               uses: akhileshns/heroku-deploy@v3.5.6
