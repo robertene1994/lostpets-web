@@ -3,7 +3,7 @@ name: CI and Delivery
 on:
     push:
         branches:
-            - dev
+            - master
 
 jobs:
     build-and-test:
@@ -37,7 +37,7 @@ jobs:
               uses: actions/upload-artifact@v2
               with:
                   name: dist
-                  path: static
+                  path: dist
 
             - name: Archive code coverage result
               uses: actions/upload-artifact@v2
