@@ -9,7 +9,7 @@
         "config": "node ./.scripts/config.js",
         "start:dev": "ng serve",
         "start": "node server.js",
-        "build": "npm run config && ng build --prod --base-href / --aot=false --build-optimizer=false",
+        "build": "npm run config && ng build --prod --configuration=heroku --base-href / --aot=false --build-optimizer=false",
         "build:docs": "typedoc --out doc src --ignoreCompilerErrors",
         "build:aws": "npm run config && ng build --prod --configuration=aws --base-href / --aot=false --build-optimizer=false",
         "build:heroku": "npm run config && ng build --prod --configuration=heroku --base-href / --aot=false --build-optimizer=false",
@@ -20,8 +20,7 @@
         "e2e": "ng e2e",
         "e2e:ci": "ng e2e",
         "prestop": "node ./.scripts/stop.js",
-        "pretest": "webdriver-manager update --standalone false --gecko false",
-        "postinstall": "npm run build:heroku"
+        "pretest": "webdriver-manager update --standalone false --gecko false"
     },
     "private": true,
     "dependencies": {
