@@ -1,8 +1,8 @@
 #!/bin/bash
 echo $HEROKU_API_KEY >> ~/.netrc
 cat ~/.netrc
-git config --global user.name "${HEROKU_EMAIL}"
-git config --global user.email "${HEROKU_EMAIL}"
+git config --global user.name "$HEROKU_EMAIL"
+git config --global user.email "$HEROKU_EMAIL"
 heroku whoami
 cd build
 ls -l
