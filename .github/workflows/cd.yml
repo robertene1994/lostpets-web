@@ -62,7 +62,7 @@ jobs:
                   heroku_app_name: ${{ secrets.HEROKU_APP_NAME }}
                   heroku_email: ${{ secrets.HEROKU_EMAIL }}
               run: |
-                  echo $HEROKU_EMAIL >> ~/.netrc
+                  echo $HEROKU_API_KEY >> ~/.netrc
                   cd build
                   ls -l
                   git init
