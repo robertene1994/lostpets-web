@@ -63,6 +63,8 @@ jobs:
                   heroku_email: ${{ secrets.HEROKU_EMAIL }}
               run: |
                   echo $HEROKU_API_KEY >> ~/.netrc
+                  git config --global user.name $HEROKU_EMAIL
+                  git config --global user.email $HEROKU_EMAIL
                   cd build
                   ls -l
                   git init
