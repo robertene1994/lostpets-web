@@ -53,17 +53,6 @@ jobs:
             - name: Repository checkout
               uses: actions/checkout@v2
 
-            - name: Download build
-              uses: actions/download-artifact@v2
-              with:
-                  name: lostpets-web-dist
-                  path: dist
-
-            - name: Checks
-              run: |
-                  ls -l
-                  cat .gitignore
-
             - name: Deploy to Heroku
               uses: akhileshns/heroku-deploy@v3.5.6
               with:
