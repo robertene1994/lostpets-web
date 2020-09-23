@@ -1,46 +1,46 @@
 name: CI and Delivery
 
 on:
-    push:
-        branches:
-            - master
+  push:
+    branches:
+      - master
 
 jobs:
-    build-and-test:
-        name: Build and Test
-        runs-on: ubuntu-latest
+  build-and-test:
+    name: Build and Test
+    runs-on: ubuntu-latest
 
-        steps:
-            - name: Repository checkout
-              uses: actions/checkout@v2
+    steps:
+      - name: Repository checkout
+        uses: actions/checkout@v2
 
-            - name: Use NodeJS 12.x
-              uses: actions/setup-node@v1
-              with:
-                  node-version: 12.x
+      - name: Use NodeJS 12.x
+        uses: actions/setup-node@v1
+        with:
+          node-version: 12.x
 
-            - name: Install dependencies
-              run: npm ci
+      - name: Install dependencies
+        run: npm ci
 
-            - name: Test
-              run: npm run test:ci
-              env:
-                  CI: true
-                  GOOGLE_MAPS_API_KEY: ${{ secrets.GOOGLE_MAPS_API_KEY }}
+      - name: Test
+        run: npm run test:ci
+        env:
+          CI: true
+          GOOGLE_MAPS_API_KEY: ${{ secrets.GOOGLE_MAPS_API_KEY }}
 
-            - name: Build
-              run: npm run build:ci
-              env:
-                  GOOGLE_MAPS_API_KEY: ${{ secrets.GOOGLE_MAPS_API_KEY }}
+      - name: Build
+        run: npm run build:ci
+        env:
+          GOOGLE_MAPS_API_KEY: ${{ secrets.GOOGLE_MAPS_API_KEY }}
 
-            - name: Archive build
-              uses: actions/upload-artifact@v2
-              with:
-                  name: lostpets-web
-                  path: dist
+      - name: Archive build
+        uses: actions/upload-artifact@v2
+        with:
+          name: lostpets-web-dist
+          path: dist
 
-            - name: Archive code coverage result
-              uses: actions/upload-artifact@v2
-              with:
-                  name: code-coverage
-                  path: coverage
+      - name: Archive code coverage result
+        uses: actions/upload-artifact@v2
+        with:
+          name: code-coverage
+          path: coverage
