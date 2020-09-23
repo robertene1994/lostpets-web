@@ -1,0 +1,20 @@
+# Heroku ignore files
+/config
+/.vscode
+/doc
+/e2e
+/src
+.editorconfig
+.jsbeautifyrc
+.prettierrc
+angular.json
+browserslist
+karma.conf.js
+LICENSE
+package-lock.json
+package.json
+README.md
+tsconfig.app.json
+tsconfig.json
+tsconfig.spec.json
+tslint.json
