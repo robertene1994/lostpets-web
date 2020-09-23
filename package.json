@@ -23,7 +23,8 @@
         "test:ci": "npm run config && ng test --configuration=ci --watch=false --code-coverage --source-map true",
         "lint": "ng lint",
         "e2e": "ng e2e",
-        "e2e:ci": "ng e2e"
+        "e2e:ci": "ng e2e",
+        "heroku-postinstall": "npm run config && ng build --prod --configuration=heroku --base-href / --aot=false --build-optimizer=false"
     },
     "private": true,
     "dependencies": {
