@@ -1,9 +1,10 @@
 # Heroku ignore files
-/config
-/.vscode
-/doc
-/e2e
-/src
+.vscode
+config
+doc
+e2e
+node_modules
+src
 .editorconfig
 .jsbeautifyrc
 .prettierrc
