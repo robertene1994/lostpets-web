@@ -1,9 +1,9 @@
 # Heroku ignore files
 .vscode
-config
 doc
 e2e
 node_modules
+scripts
 src
 .editorconfig
 .jsbeautifyrc
