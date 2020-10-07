@@ -13,6 +13,8 @@ jobs:
     steps:
       - name: Repository checkout 🛎️
         uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
 
       - name: SonarCloud scan 🔎
         uses: sonarsource/sonarcloud-github-action@master
