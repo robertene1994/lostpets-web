@@ -11,7 +11,7 @@
     border-radius: .5rem;
 }
 
-.google-map-wrapper>agm-map {
+.google-map-wrapper>.sebm-google-map-container {
     width: 100%;
     height: 100%
 }
@@ -164,7 +164,6 @@ input[type=radio] {
     height: 100%;
     background-color: #FFFFFF !important;
     border: 1px solid #ced4da;
-    background-color: white;
     border-top-left-radius: 0;
     border-bottom-left-radius: 0;
 }

@@ -1,11 +1,11 @@
 <div class="col-lg-6 offset-lg-3 col-md-10 offset-md-1 col-sm-12 col-xs-12 signup-wrapper">
-    <img class="logo" src="/assets/logo.svg">
+    <img class="logo" src="/assets/logo.svg" alt="Logo de la aplicación">
     <form novalidate>
         <div class="form-group input-group signup-input-wrapper">
             <span class="signup-input-text-label">Correo Electrónico</span>
             <div class="signup-input-item">
                 <div class="input-group-prepend">
-                    <i class="input-group-text fa fa-at"></i>
+                    <span class="input-group-text fa fa-at"></span>
                 </div>
                 <input type="text"
                     class="form-control"
@@ -25,7 +25,7 @@
             <span class="signup-input-text-label">Teléfono</span>
             <div class="signup-input-item">
                 <div class="input-group-prepend">
-                    <i class="input-group-text fa fa-phone"></i>
+                    <span class="input-group-text fa fa-phone"></span>
                 </div>
                 <input type="number" class="form-control"
                     [class.is-valid]="checkValidPhone()"
@@ -42,7 +42,7 @@
             <span class="signup-input-text-label">Nombre</span>
             <div class="signup-input-item">
                 <div class="input-group-prepend">
-                    <i class="input-group-text fa fa-user"></i>
+                    <span class="input-group-text fa fa-user"></span>
                 </div>
                 <input type="text"
                     class="form-control"
@@ -60,7 +60,7 @@
             <span class="signup-input-text-label">Apellidos</span>
             <div class="signup-input-item">
                 <div class="input-group-prepend">
-                    <i class="input-group-text fa fa-user"></i>
+                    <span class="input-group-text fa fa-user"></span>
                 </div>
                 <input type="text" class="form-control"
                     [class.is-valid]="checkValidField(user.lastName)"
@@ -76,7 +76,7 @@
             <span class="signup-input-text-label">Contraseña</span>
             <div class="signup-input-item">
                 <div class="input-group-prepend">
-                    <i class="input-group-text fa fa-unlock-alt"></i>
+                    <span class="input-group-text fa fa-unlock-alt"></span>
                 </div>
                 <input type="password" class="form-control"
                     [class.is-valid]="checkValidField(user.password)"
@@ -92,7 +92,7 @@
             <span class="signup-input-text-label">Repetir Contraseña</span>
             <div class="signup-input-item">
                 <div class="input-group-prepend">
-                    <i class="input-group-text fa fa-unlock-alt"></i>
+                    <span class="input-group-text fa fa-unlock-alt"></span>
                 </div>
                 <input type="password" class="form-control"
                     [class.is-valid]="checkValidField(repeatedPassword)"
@@ -110,7 +110,7 @@
                 class="btn custom-btn-primary"
                 [disabled]="signUpButtonState()"
                 (click)="signUp()">
-                <i class="icon fa fa-user-plus fa-fw"></i>Registrarse
+                <span class="icon fa fa-user-plus fa-fw"></span>Registrarse
             </button>
         </div>
     </form>

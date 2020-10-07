@@ -6,18 +6,18 @@
             (click)="goToAdDetail(ad)">
             <div class="col-lg-3 col-md-12 col-sm-12 col-xs-12 p-0">
                 <img class="ad-photo" src="{{ad.photo}}"
-                    (error)="reloadPetPhoto(ad.code)">
+                    (error)="reloadPetPhoto(ad.code)" alt="Imagen de la mascota perdida">
             </div>
             <div class="col-lg-9 col-md-12 col-sm-12 col-xs-12 ad-info">
                 <div>
                     <span class="ad-info-text-label">
-                        <i class="fa fa-id-card-o mr-1"></i>Código Anuncio
+                        <span class="fa fa-id-card-o mr-1"></span>Código Anuncio
                     </span>
                     <span class="ad-info-text">{{ad.code}}</span>
                 </div>
                 <div>
                     <span class="ad-info-text-label">
-                        <i class="fa fa-question-circle-o mr-1"></i>Estado Mascota
+                        <span class="fa fa-question-circle-o mr-1"></span>Estado Mascota
                     </span>
                     <span *ngIf="ad.petStatus === 'LOST'"
                         class="ad-info-text lost-pet-status">Perdida
@@ -28,19 +28,19 @@
                 </div>
                 <div>
                     <span class="ad-info-text-label">
-                        <i class="fa fa-money mr-1"></i>Recompensa Ofrecida
+                        <span class="fa fa-money mr-1"></span>Recompensa Ofrecida
                     </span>
                     <span class="ad-info-text">{{ad.reward}} €</span>
                 </div>
                 <div>
                     <span class="ad-info-text-label">
-                        <i class="fa fa-paw mr-1"></i>Nombre Mascota
+                        <span class="fa fa-paw mr-1"></span>Nombre Mascota
                     </span>
                     <span class="ad-info-text">{{ad.pet.name}}</span>
                 </div>
                 <div>
                     <span class="ad-info-text-label">
-                        <i class="fa fa-calendar mr-1"></i>Fecha Desaparición
+                        <span class="fa fa-calendar mr-1"></span>Fecha Desaparición
                     </span>
                     <span class="ad-info-text">{{ad.date | date:'dd.MM.yyyy HH:mm'}}</span>
                 </div>
@@ -51,7 +51,7 @@
                         pTooltip="Modificar los datos del anuncio"
                         tooltipPosition="bottom"
                         tooltipStyleClass="button-tooltip">
-                        <i class="fa fa-pencil fa-fw"></i>Modificar
+                        <span class="fa fa-pencil fa-fw"></span>Modificar
                     </button>
                 </div>
             </div>

@@ -1,11 +1,11 @@
 <div *ngIf="!spinnerService.getSpinner()"
     class="col-lg-10 offset-lg-1 col-md-10 offset-md-1 col-sm-12 col-xs-12 ad-detail-wrapper">
     <div class="col-lg-4 col-md-6 col-sm-12 col-xs-12 p-0">
-        <i *ngIf="ad.petStatus === 'LOST'"
-            class="fa fa-frown-o ad-detail-feeling-status-logo ad-detail-feeling-lost-logo"></i>
-        <i *ngIf="ad.petStatus === 'FOUND'"
-            class="fa fa-smile-o ad-detail-feeling-status-logo ad-detail-feeling-found-logo"></i>
-        <img class="ad-detail-photo" src="{{apiUrl}}/{{ad.photo}}">
+        <span *ngIf="ad.petStatus === 'LOST'"
+            class="fa fa-frown-o ad-detail-feeling-status-logo ad-detail-feeling-lost-logo"></span>
+        <span *ngIf="ad.petStatus === 'FOUND'"
+            class="fa fa-smile-o ad-detail-feeling-status-logo ad-detail-feeling-found-logo"></span>
+        <img class="ad-detail-photo" src="{{apiUrl}}/{{ad.photo}}" alt="Imagen de la mascota perdida">
     </div>
     <div class="col-lg-8 col-md-6 col-sm-12 col-xs-12 google-map-wrapper">
         <agm-map (mapReady)="onMapReady($event)">
@@ -19,70 +19,70 @@
     </div>
     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 ad-detail-info-wrapper">
         <h1>
-            <i class="fa fa-bullhorn mr-1"></i>Anuncio
+            <span class="fa fa-bullhorn mr-1"></span>Anuncio
         </h1>
         <hr class="ad-detail-separator">
         <div class="ad-detail-ad-info">
             <div>
                 <span class="ad-info-text-label">
-                    <i class="fa fa-id-card-o mr-1"></i>Código
+                    <span class="fa fa-id-card-o mr-1"></span>Código
                 </span>
                 <span class="ad-info-text">{{ad.code}}</span>
             </div>
             <div>
                 <span class="ad-info-text-label">
-                    <i class="fa fa-money mr-1"></i>Recompensa Ofrecida
+                    <span class="fa fa-money mr-1"></span>Recompensa Ofrecida
                 </span>
                 <span class="ad-info-text">{{ad.reward}} €</span>
             </div>
             <div>
                 <span class="ad-info-text-label">
-                    <i class="fa fa-question-circle-o mr-1"></i>Estado Mascota
+                    <span class="fa fa-question-circle-o mr-1"></span>Estado Mascota
                 </span>
                 <span *ngIf="ad.petStatus === 'LOST'" class="ad-info-text lost-pet-status">Perdida</span>
                 <span *ngIf="ad.petStatus === 'FOUND'" class="ad-info-text found-pet-status">Encontrada</span>
             </div>
             <div>
                 <span class="ad-info-text-label">
-                    <i class="fa fa-calendar mr-1"></i>Fecha Desaparición
+                    <span class="fa fa-calendar mr-1"></span>Fecha Desaparición
                 </span>
                 <span class="ad-info-text">{{ad.date | date:'dd.MM.yyyy HH:mm'}}</span>
             </div>
         </div>
         <div>
             <span class="ad-info-text-label">
-                <i class="fa fa-exclamation-triangle mr-1"></i>Observaciones
+                <span class="fa fa-exclamation-triangle mr-1"></span>Observaciones
             </span>
             <span class="ad-info-text ad-detail-text-observations">{{ad.observations}}</span>
         </div>
     </div>
     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 ad-detail-info-wrapper">
         <h1>
-            <i class="fa fa-paw mr-1"></i>Mascota
+            <span class="fa fa-paw mr-1"></span>Mascota
         </h1>
         <hr class="ad-detail-separator">
         <div class="ad-detail-ad-info">
             <div>
                 <span class="ad-info-text-label">
-                    <i class="fa fa-id-card-o mr-1"></i>Nombre
+                    <span class="fa fa-id-card-o mr-1"></span>Nombre
                 </span>
                 <span class="ad-info-text">{{ad.pet.name}}</span>
             </div>
             <div>
                 <span class="ad-info-text-label">
-                    <i class="fa fa-paw mr-1"></i>Tipo
+                    <span class="fa fa-paw mr-1"></span>Tipo
                 </span>
                 <span class="ad-info-text">{{ad.pet.type}}</span>
             </div>
             <div>
                 <span class="ad-info-text-label">
-                    <i class="fa fa-info mr-1"></i>Raza
+                    <span class="fa fa-info mr-1"></span>Raza
                 </span>
                 <span class="ad-info-text">{{ad.pet.race}}</span>
             </div>
             <div>
                 <span class="ad-info-text-label">
-                    <i class="fa fa-intersex mr-1"></i>Sexo
+                    <span class="fa fa-intersex mr-1"></span>Sexo
                 </span>
                 <span *ngIf="ad.pet.sex === 'MALE'"
                     class="ad-info-text">Macho
@@ -93,13 +93,13 @@
             </div>
             <div>
                 <span class="ad-info-text-label">
-                    <i class="fa fa-adjust mr-1"></i>Color
+                    <span class="fa fa-adjust mr-1"></span>Color
                 </span>
                 <span class="ad-info-text">{{ad.pet.colour}}</span>
             </div>
             <div>
                 <span class="ad-info-text-label">
-                    <i class="fa fa-microchip mr-1"></i>Microchip (ID)
+                    <span class="fa fa-microchip mr-1"></span>Microchip (ID)
                 </span>
                 <span class="ad-info-text">{{ad.pet.microchipId}}</span>
             </div>
@@ -107,31 +107,31 @@
     </div>
     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 ad-detail-info-wrapper">
         <h1>
-            <i class="fa fa-user mr-1"></i>Propietario
+            <span class="fa fa-user mr-1"></span>Propietario
         </h1>
         <hr class="ad-detail-separator">
         <div class="ad-detail-ad-info">
             <div>
                 <span class="ad-info-text-label">
-                    <i class="fa fa-id-card-o mr-1"></i>Nombre
+                    <span class="fa fa-id-card-o mr-1"></span>Nombre
                 </span>
                 <span class="ad-info-text">{{ad.user.firstName}}</span>
             </div>
             <div>
                 <span class="ad-info-text-label">
-                    <i class="fa fa-id-card-o mr-1"></i>Apellidos
+                    <span class="fa fa-id-card-o mr-1"></span>Apellidos
                 </span>
                 <span class="ad-info-text">{{ad.user.lastName}}</span>
             </div>
             <div>
                 <span class="ad-info-text-label">
-                    <i class="fa fa-at mr-1"></i>Correo Electrónico
+                    <span class="fa fa-at mr-1"></span>Correo Electrónico
                 </span>
                 <span class="ad-info-text">{{ad.user.email}}</span>
             </div>
             <div>
                 <span class="ad-info-text-label">
-                    <i class="fa fa-phone mr-1"></i>Teléfono
+                    <span class="fa fa-phone mr-1"></span>Teléfono
                 </span>
                 <span class="ad-info-text">{{ad.user.phone}}</span>
             </div>
@@ -142,12 +142,12 @@
         <button *ngIf="isMobileDevice()" class="btn custom-btn-primary"
             [disabled]="ad.user.id === user.id"
             (click)="makeCall(ad.user.phone)">
-            <i class="fa fa-phone fa-fw"></i>
+            <span class="fa fa-phone fa-fw"></span>
         </button>
         <button *ngIf="isMobileDevice()" class="btn custom-btn-primary"
             [disabled]="ad.user.id === user.id"
             (click)="sendEmail(ad.user.email)">
-            <i class="fa fa-envelope fa-fw"></i>
+            <span class="fa fa-envelope fa-fw"></span>
         </button>
         <button id="go-to-chat-button"
             class="btn custom-btn-primary"
@@ -156,7 +156,7 @@
             pTooltip="Enviar mensaje privado al propietario del anuncio"
             tooltipPosition="top"
             tooltipStyleClass="button-tooltip">
-            <i class="fa fa-comments fa-fw"></i>{{!isMobileDevice() ? "Chat" : ""}}
+            <span class="fa fa-comments fa-fw"></span>{{!isMobileDevice() ? "Chat" : ""}}
         </button>
         <button *ngIf="ad.user.id === user.id || user.role === 'ADMIN'"
             id="go-to-update-ad-button"
@@ -165,7 +165,7 @@
             pTooltip="Modificar los datos del anuncio"
             tooltipPosition="top"
             tooltipStyleClass="button-tooltip">
-            <i class="fa fa-pencil fa-fw"></i>{{!isMobileDevice() ? "Modificar" : ""}}
+            <span class="fa fa-pencil fa-fw"></span>{{!isMobileDevice() ? "Modificar" : ""}}
         </button>
         <div *ngIf="user.role === 'ADMIN'"
             class="custom-control custom-switch custom-switch-adaptive"

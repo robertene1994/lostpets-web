@@ -3,18 +3,18 @@
     <div *ngFor="let user of pageOfUsers">
         <div class="user-wrapper">
             <div class="col-lg-3 col-md-12 col-sm-12 col-xs-12 p-0">
-                <img class="user-photo" src="/assets/user-image-placeholder.svg">
+                <img class="user-photo" src="/assets/user-image-placeholder.svg" alt="Imagen del usuario">
             </div>
             <div class="col-lg-9 col-md-12 col-sm-12 col-xs-12 user-info">
                 <div>
                     <span class="user-info-text-label">
-                        <i class="fa fa-at mr-1"></i>Correo Electrónico
+                        <span class="fa fa-at mr-1"></span>Correo Electrónico
                     </span>
                     <span class="user-info-text">{{user.email}}</span>
                 </div>
                 <div>
                     <span class="user-info-text-label">
-                        <i class="fa fa-question-circle-o mr-1"></i>Estado
+                        <span class="fa fa-question-circle-o mr-1"></span>Estado
                     </span>
                     <span *ngIf="user.status === 'ENABLED'"
                         class="user-info-text enabled-user-status">Habilitado
@@ -25,7 +25,7 @@
                 </div>
                 <div>
                     <span class="user-info-text-label">
-                        <i class="fa fa-id-card-o mr-1"></i>Rol
+                        <span class="fa fa-id-card-o mr-1"></span>Rol
                     </span>
                     <span *ngIf="user.role === 'USER'"
                         class="user-info-text user-role-text">Usuario
@@ -36,13 +36,13 @@
                 </div>
                 <div>
                     <span class="user-info-text-label">
-                        <i class="fa fa-phone mr-1"></i>Teléfono
+                        <span class="fa fa-phone mr-1"></span>Teléfono
                     </span>
                     <span class="user-info-text">{{user.phone}}</span>
                 </div>
                 <div>
                     <span class="user-info-text-label">
-                        <i class="fa fa-user mr-1"></i>Nombre
+                        <span class="fa fa-user mr-1"></span>Nombre
                     </span>
                     <span class="user-info-text">{{user.lastName}} {{user.firstName}}</span>
                 </div>

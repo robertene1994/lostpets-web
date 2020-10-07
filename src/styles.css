@@ -2,6 +2,8 @@
 ************ GENERAL ************
 ********************************/
 
+
+
 @media (min-width: 0px) {
     h1 {
         font-size: 2rem !important;
@@ -272,7 +274,7 @@ h6 {
 }
 
 .user-messages-toast .ui-toast-icon::before {
-    font-family: "FontAwesome";
+    font-family: "FontAwesome", sans-serif !important;
     content: "\f086";
 }
 
@@ -366,7 +368,6 @@ h6 {
 }
 
 .custom-switch.custom-switch-adaptive .custom-control-label {
-    padding: 0 1.5em;
     text-transform: uppercase;
     position: relative;
     border-radius: .25rem;
@@ -388,7 +389,7 @@ h6 {
     position: absolute;
     z-index: 1;
     color: #FFFFFF;
-    font-family: "FontAwesome";
+    font-family: "FontAwesome", sans-serif !important;
     content: "\f05e";
     display: flex;
     width: 100%;
@@ -415,7 +416,7 @@ h6 {
     position: absolute;
     z-index: 1;
     color: #FFFFFF;
-    font-family: "FontAwesome";
+    font-family: "FontAwesome", sans-serif !important;
     font-size: 1rem;
     content: "\f00c";
     display: flex;

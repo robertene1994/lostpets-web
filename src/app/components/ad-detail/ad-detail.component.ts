@@ -15,7 +15,6 @@ import { User } from 'src/app/shared/model/user';
 import { AdStatus } from 'src/app/shared/model/types/ad-status';
 
 import { apiUrl, mobileDevicePattern } from '../../app.config';
-import { Pet } from 'src/app/shared/model/pet';
 
 /**
  * Componente que se encarga de manejar el detalle de un determinado anuncio

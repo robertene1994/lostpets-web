@@ -1,7 +1,7 @@
 <div *ngIf="!spinnerService.getSpinner()"
     class="col-lg-10 offset-lg-1 col-md-10 offset-md-1 col-sm-12 col-xs-12 update-ad-wrapper">
     <div class="col-lg-4 col-md-6 col-sm-12 col-xs-12 p-0">
-        <img class="update-ad-photo" [src]="petImageUrl">
+        <img class="update-ad-photo" [src]="petImageUrl" alt="Imagen de la mascota perdida">
     </div>
     <div class="col-lg-8 col-md-6 col-sm-12 col-xs-12 google-map-wrapper"
         pTooltip="Arrastre el marcador o haga click en el mapa para modificar la última ubicación conocida de la mascota"
@@ -48,7 +48,7 @@
     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 update-ad-info-wrapper">
         <form novalidate>
             <h1>
-                <i class="fa fa-bullhorn mr-1"></i>Anuncio
+                <span class="fa fa-bullhorn mr-1"></span>Anuncio
             </h1>
             <hr class="update-ad-separator">
             <div class="update-ad-info">
@@ -83,7 +83,7 @@
                     <span class="update-ad-info-text-label">Recompensa Ofrecida</span>
                     <div class="update-ad-info-item">
                         <div class="input-group-prepend">
-                            <i class="input-group-text fa fa-money"></i>
+                            <span class="input-group-text fa fa-money"></span>
                         </div>
                         <input name="reward"
                             type="number"
@@ -105,7 +105,7 @@
                     <span class="update-ad-info-text-label">Fecha Desaparición</span>
                     <div class="update-ad-info-item">
                         <div class="input-group-prepend">
-                            <i class="input-group-text fa fa-calendar"></i>
+                            <span class="input-group-text fa fa-calendar"></span>
                         </div>
                         <p-calendar name="date"
                             class="update-ad-calendar-input"
@@ -126,7 +126,7 @@
                     <span class="update-ad-info-text-label">Hora Desaparición</span>
                     <div class="update-ad-info-item">
                         <div class="input-group-prepend">
-                            <i class="input-group-text fa fa-clock-o"></i>
+                            <span class="input-group-text fa fa-clock-o"></span>
                         </div>
                         <p-calendar name="time"
                             class="update-ad-calendar-input"
@@ -147,7 +147,7 @@
                 <span class="update-ad-info-text-label">Observaciones</span>
                 <div class="update-ad-info-item">
                     <div class="input-group-prepend">
-                        <i class="input-group-text fa fa-exclamation-triangle"></i>
+                        <span class="input-group-text fa fa-exclamation-triangle"></span>
                     </div>
                     <textarea name="observations"
                         rows="2"
@@ -163,7 +163,7 @@
                 </div>
             </div>
             <h1>
-                <i class="fa fa-bullhorn mr-1"></i>Mascota
+                <span class="fa fa-bullhorn mr-1"></span>Mascota
             </h1>
             <hr class="update-ad-separator">
             <div class="update-ad-info">
@@ -171,7 +171,7 @@
                     <span class="update-ad-info-text-label">Nombre</span>
                     <div class="update-ad-info-item">
                         <div class="input-group-prepend">
-                            <i class="input-group-text fa fa-id-card-o"></i>
+                            <span class="input-group-text fa fa-id-card-o"></span>
                         </div>
                         <input name="name"
                             type="text"
@@ -189,7 +189,7 @@
                     <span class="update-ad-info-text-label">Tipo</span>
                     <div class="update-ad-info-item">
                         <div class="input-group-prepend">
-                            <i class="input-group-text fa fa-paw"></i>
+                            <span class="input-group-text fa fa-paw"></span>
                         </div>
                         <input type="text"
                             class="form-control"
@@ -208,7 +208,7 @@
                     <span class="update-ad-info-text-label">Raza</span>
                     <div class="update-ad-info-item">
                         <div class="input-group-prepend">
-                            <i class="input-group-text fa fa-info"></i>
+                            <span class="input-group-text fa fa-info"></span>
                         </div>
                         <input type="text"
                             class="form-control"
@@ -252,7 +252,7 @@
                     <span class="update-ad-info-text-label">Color</span>
                     <div class="update-ad-info-item">
                         <div class="input-group-prepend">
-                            <i class="input-group-text fa fa-adjust"></i>
+                            <span class="input-group-text fa fa-adjust"></span>
                         </div>
                         <input name="colour"
                             type="text"
@@ -270,7 +270,7 @@
                     <span class="update-ad-info-text-label">Microchip (ID)</span>
                     <div class="update-ad-info-item">
                         <div class="input-group-prepend">
-                            <i class="input-group-text fa fa-paw"></i>
+                            <span class="input-group-text fa fa-paw"></span>
                         </div>
                         <input name="microchipId"
                             type="text"
@@ -294,7 +294,7 @@
                     pTooltip="Guardar los nuevos datos del anuncio"
                     tooltipPosition="top"
                     tooltipStyleClass="button-tooltip">
-                    <i class="icon fa fa-floppy-o fa-fw"></i>Guardar
+                    <span class="icon fa fa-floppy-o fa-fw"></span>Guardar
                 </button>
             </div>
         </form>

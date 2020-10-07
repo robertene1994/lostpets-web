@@ -12,10 +12,7 @@ import { User } from '../../shared/model/user';
 import { Ad } from '../../shared/model/ad';
 import { AdStatus } from 'src/app/shared/model/types/ad-status';
 
-import {
-    apiUrl, imageReloadIntervalMillis,
-    imageUpdateReloadIntervalMillis
-} from 'src/app/app.config';
+import { apiUrl, imageReloadIntervalMillis, imageUpdateReloadIntervalMillis } from 'src/app/app.config';
 
 /**
  * Componente que se encarga de manejar todos los anuncios de mascotas perdidas
@@ -26,10 +23,9 @@ import {
 @Component({
     selector: 'app-user-ads',
     templateUrl: './user-ads.component.html',
-    styleUrls: ['./user-ads.component.css']
+    styleUrls: ['./user-ads.component.css'],
 })
 export class UserAdsComponent implements OnInit {
-
     private readonly PET_IMAGE_URL_PLACEHOLDER = '/assets/pet-image-placeholder.svg';
 
     private updatedAd: string;
@@ -45,7 +41,8 @@ export class UserAdsComponent implements OnInit {
         private errorHandlerService: ErrorHandlerService,
         private notificationsService: NotificationsService,
         private userService: UserService,
-        private adService: AdService) { }
+        private adService: AdService
+    ) {}
 
     async ngOnInit() {
         this.title.setTitle('LostPets: Mis Anuncios');
@@ -57,36 +54,37 @@ export class UserAdsComponent implements OnInit {
     }
 
     async getUserAds() {
-        const userAds = await this.adService.getUserAds(this.user.id)
-            .catch(err => this.errorHandlerService.handleError(err));
+        const userAds = await this.adService.getUserAds(this.user.id).catch((err) => this.errorHandlerService.handleError(err));
         if (userAds) {
-            userAds.forEach(ad => ad.photo = `${apiUrl}/${ad.photo}`);
+            userAds.forEach((ad) => (ad.photo = `${apiUrl}/${ad.photo}`));
             this.userAds = userAds;
             this.reloadPetPhoto(this.updatedAd, true);
-            if (this.userAds.some(ad => ad.adStatus === AdStatus.DISABLED)) {
-                this.notificationsService.showWarn('Mis Anuncios',
+            if (this.userAds.some((ad) => ad.adStatus === AdStatus.DISABLED)) {
+                this.notificationsService.showWarn(
+                    'Mis Anuncios',
                     `¡Alguno de los anuncios que ha publicado ha sido
-                    inhabilitado por incumplir las normas de la comunidad!`);
+                    inhabilitado por incumplir las normas de la comunidad!`
+                );
             }
             if (this.userAds.length === 0) {
-                this.notificationsService.showInfo('Mis Anuncios',
-                    '¡No ha publicado ningún anuncio aún!');
+                this.notificationsService.showInfo('Mis Anuncios', '¡No ha publicado ningún anuncio aún!');
             }
         }
     }
 
     reloadPetPhoto(code: string, isUpdate?: boolean) {
         if (code) {
-            this.userAds.find(ad => {
-                if (ad.code === code) {
-                    const photo = ad.photo.indexOf('?') !== -1
-                        ? ad.photo.substr(0, ad.photo.indexOf('?')) : ad.photo;
-                    ad.photo = this.PET_IMAGE_URL_PLACEHOLDER;
-                    setTimeout(() => {
+            const ad = this.userAds.find((userAd) => userAd.code === code);
+            if (ad) {
+                const photo = ad.photo.indexOf('?') !== -1 ? ad.photo.substr(0, ad.photo.indexOf('?')) : ad.photo;
+                ad.photo = this.PET_IMAGE_URL_PLACEHOLDER;
+                setTimeout(
+                    () => {
                         ad.photo = `${photo}?${new Date().getTime()}`;
-                    }, !isUpdate ? imageReloadIntervalMillis : imageUpdateReloadIntervalMillis);
-                }
-            });
+                    },
+                    !isUpdate ? imageReloadIntervalMillis : imageUpdateReloadIntervalMillis
+                );
+            }
         }
     }
 
@@ -95,8 +93,7 @@ export class UserAdsComponent implements OnInit {
     }
 
     goToUpdateAd(ad: Ad) {
-        this.router.navigate(['/update-ad', ad.code],
-            { queryParams: { from: '/user-ads' } });
+        this.router.navigate(['/update-ad', ad.code], { queryParams: { from: '/user-ads' } });
     }
 
     onChangePage(pageOfUserAds: Ad[]) {
@@ -106,14 +103,10 @@ export class UserAdsComponent implements OnInit {
 
     private checkPaginationComponent() {
         if (this.userAds && this.userAds.length > 0) {
-            document.getElementsByClassName('page-item first-item')[0]
-                .firstChild.textContent = 'Primero';
-            document.getElementsByClassName('page-item previous-item')[0]
-                .firstChild.textContent = 'Anterior';
-            document.getElementsByClassName('page-item next-item')[0]
-                .firstChild.textContent = 'Siguiente';
-            document.getElementsByClassName('page-item last-item')[0]
-                .firstChild.textContent = 'Último';
+            document.getElementsByClassName('page-item first-item')[0].firstChild.textContent = 'Primero';
+            document.getElementsByClassName('page-item previous-item')[0].firstChild.textContent = 'Anterior';
+            document.getElementsByClassName('page-item next-item')[0].firstChild.textContent = 'Siguiente';
+            document.getElementsByClassName('page-item last-item')[0].firstChild.textContent = 'Último';
         }
     }
 

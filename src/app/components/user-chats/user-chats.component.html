@@ -5,7 +5,7 @@
             class="chat-wrapper"
             [class.selected-chat]="chat.code === selectedChat?.code"
             (click)="loadChatMessages(chat)">
-            <img class="user-chat-photo" src="./assets/user-chat-image-placeholder.svg">
+            <img class="user-chat-photo" src="./assets/user-chat-image-placeholder.svg" alt="Imagen del usuario">
             <div class="chat-info">
                 <div class="chat-info-first-line">
                     <span class="chat-info-to-user-name">
@@ -20,9 +20,9 @@
                     <span *ngIf="chat.lastMessage?.toUser.id !== user.id"
                         class="chat-info-last-message-status"
                         [ngSwitch]="chat.lastMessage?.messageStatus">
-                        <i *ngSwitchCase="'SENT'" class="fa fa-chevron-up"></i>
-                        <i *ngSwitchCase="'DELIVERED'" class="fa fa-chevron-down"></i>
-                        <i *ngSwitchCase="'READ'" class="fa fa-eye"></i>
+                        <span *ngSwitchCase="'SENT'" class="fa fa-chevron-up"></span>
+                        <span *ngSwitchCase="'DELIVERED'" class="fa fa-chevron-down"></span>
+                        <span *ngSwitchCase="'READ'" class="fa fa-eye"></span>
                     </span>
                     <span class="chat-info-last-message-content"
                         [class.delivered-message]="chat.lastMessage.fromUser.id !== chat.fromUser.id && chat.lastMessage.messageStatus === 'DELIVERED'">
@@ -37,11 +37,11 @@
     </div>
     <div *ngIf="messages" class="col-lg-8 col-md-7 col-sm-7 col-xs-8 chat-detail-wrapper">
         <div class="chat-detail-header">
-            <img class="chat-detail-user-photo" src="./assets/chat-detail-user-image-placeholder.svg">
+            <img class="chat-detail-user-photo" src="./assets/chat-detail-user-image-placeholder.svg" alt="Imagen del usuario">
             <span class="chat-detail-to-user-name">
                 {{selectedChat?.toUser.lastName}} {{selectedChat?.toUser.firstName}}
             </span>
-            <i class="fa fa-times chat-detail-close" (click)="closeChatDetail()"></i>
+            <span class="fa fa-times chat-detail-close" (click)="closeChatDetail()"></span>
         </div>
         <div id="chat-messages-wrapper" class="chat-messages-wrapper">
             <div *ngFor="let message of messages"
@@ -53,9 +53,9 @@
                     <span *ngIf="message.fromUser.id === user.id"
                         class="chat-message-status"
                         [ngSwitch]="message.messageStatus">
-                        <i *ngSwitchCase="'SENT'" class="fa fa-chevron-up"></i>
-                        <i *ngSwitchCase="'DELIVERED'" class="fa fa-chevron-down"></i>
-                        <i *ngSwitchCase="'READ'" class="fa fa-eye"></i>
+                        <span *ngSwitchCase="'SENT'" class="fa fa-chevron-up"></span>
+                        <span *ngSwitchCase="'DELIVERED'" class="fa fa-chevron-down"></span>
+                        <span *ngSwitchCase="'READ'" class="fa fa-eye"></span>
                     </span>
                 </div>
             </div>
@@ -74,7 +74,7 @@
                 class="btn custom-btn-primary"
                 [disabled]="sendMessageButtonState()"
                 (click)="sendMessage()">
-                <i class="icon fa fa-paper-plane fa-fw"></i>Enviar
+                <span class="icon fa fa-paper-plane fa-fw"></span>Enviar
             </button>
         </div>
     </div>

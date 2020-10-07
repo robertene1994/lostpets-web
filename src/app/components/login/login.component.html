@@ -1,11 +1,11 @@
 <div class="col-lg-6 offset-lg-3 col-md-10 offset-md-1 col-sm-12 col-xs-12 login-wrapper">
-    <img class="logo" src="/assets/logo.svg">
+    <img class="logo" src="/assets/logo.svg" alt="Logo de la aplicación">
     <form novalidate>
         <div class="form-group input-group login-input-wrapper">
             <span class="login-input-text-label">Correo Electrónico</span>
             <div class="login-input-item">
                 <div class="input-group-prepend">
-                    <i class="input-group-text fa fa-at"></i>
+                    <span class="input-group-text fa fa-at"></span>
                 </div>
                 <input name="email"
                     type="email"
@@ -23,7 +23,7 @@
             <span class="login-input-text-label">Contraseña</span>
             <div class="login-input-item">
                 <div class="input-group-prepend">
-                    <i class="input-group-text fa fa-unlock"></i>
+                    <span class="input-group-text fa fa-unlock"></span>
                 </div>
                 <input type="password"
                     name="password"
@@ -42,7 +42,7 @@
                 class="btn custom-btn-primary"
                 [disabled]="logInButtonState()"
                 (click)="logIn()">
-                <i class="fa fa-sign-in fa-fw"></i>Iniciar Sesión
+                <span class="fa fa-sign-in fa-fw"></span>Iniciar Sesión
             </button>
         </div>
     </form>
