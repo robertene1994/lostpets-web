@@ -17,10 +17,11 @@ if (process.env.GOOGLE_MAPS_API_KEY) {
         });
     });
 
-    fs.readFile('src/environments/environment.ts', 'utf8', (_err, data) => {
+    const environmentPath = 'src/environments/environment.ts';
+    fs.readFile(environmentPath, 'utf8', (_err, data) => {
         let formatted = data.split('\n').splice(2, data.split('\n').length - 1).join('\n');
         formatted = formatted.replace('googleMaps.googleMapsApiKey', undefined);
-        fs.writeFile(targetPath, formatted, 'utf8', (err) => {
+        fs.writeFile(environmentPath, formatted, 'utf8', (err) => {
             if (err)
                 return console.log(err);
         });
