@@ -1,5 +1,5 @@
 TN:
-SF:C:\Users\Robert\Desktop\Apps\LostPets\LostPets - Web\src\polyfills.ts
+SF:src\polyfills.ts
 FNF:0
 FNH:0
 DA:65,1
@@ -9,7 +9,7 @@ BRF:0
 BRH:0
 end_of_record
 TN:
-SF:C:\Users\Robert\Desktop\Apps\LostPets\LostPets - Web\src\test.ts
+SF:src\test.ts
 FNF:0
 FNH:0
 DA:10,1
@@ -21,7 +21,7 @@ BRF:0
 BRH:0
 end_of_record
 TN:
-SF:C:\Users\Robert\Desktop\Apps\LostPets\LostPets - Web\src\app\app.component.ts
+SF:src\app\app.component.ts
 FN:30,(anonymous_0)
 FN:41,(anonymous_1)
 FN:48,(anonymous_2)
@@ -153,7 +153,7 @@ BRF:36
 BRH:36
 end_of_record
 TN:
-SF:C:\Users\Robert\Desktop\Apps\LostPets\LostPets - Web\src\app\app.config.ts
+SF:src\app\app.config.ts
 FNF:0
 FNH:0
 DA:4,1
@@ -179,7 +179,7 @@ BRF:0
 BRH:0
 end_of_record
 TN:
-SF:C:\Users\Robert\Desktop\Apps\LostPets\LostPets - Web\src\app\components\ad-detail\ad-detail.component.ts
+SF:src\app\components\ad-detail\ad-detail.component.ts
 FN:39,(anonymous_0)
 FN:49,(anonymous_1)
 FN:57,(anonymous_3)
@@ -257,7 +257,7 @@ BRF:8
 BRH:8
 end_of_record
 TN:
-SF:C:\Users\Robert\Desktop\Apps\LostPets\LostPets - Web\src\app\components\add-ad\add-ad.component.ts
+SF:src\app\components\add-ad\add-ad.component.ts
 FN:55,(anonymous_0)
 FN:66,(anonymous_1)
 FN:77,(anonymous_3)
@@ -542,7 +542,7 @@ BRF:83
 BRH:83
 end_of_record
 TN:
-SF:C:\Users\Robert\Desktop\Apps\LostPets\LostPets - Web\src\app\components\ads\ads.component.ts
+SF:src\app\components\ads\ads.component.ts
 FN:40,(anonymous_0)
 FN:49,(anonymous_1)
 FN:58,(anonymous_3)
@@ -647,7 +647,7 @@ BRF:21
 BRH:21
 end_of_record
 TN:
-SF:C:\Users\Robert\Desktop\Apps\LostPets\LostPets - Web\src\app\components\login\login.component.ts
+SF:src\app\components\login\login.component.ts
 FN:32,(anonymous_0)
 FN:45,(anonymous_1)
 FN:51,(anonymous_2)
@@ -782,7 +782,7 @@ BRF:44
 BRH:44
 end_of_record
 TN:
-SF:C:\Users\Robert\Desktop\Apps\LostPets\LostPets - Web\src\app\components\signup\signup.component.ts
+SF:src\app\components\signup\signup.component.ts
 FN:37,(anonymous_0)
 FN:52,(anonymous_1)
 FN:57,(anonymous_2)
@@ -924,7 +924,7 @@ BRF:52
 BRH:52
 end_of_record
 TN:
-SF:C:\Users\Robert\Desktop\Apps\LostPets\LostPets - Web\src\app\components\update-ad\update-ad.component.ts
+SF:src\app\components\update-ad\update-ad.component.ts
 FN:49,(anonymous_0)
 FN:60,(anonymous_1)
 FN:70,(anonymous_3)
@@ -1215,7 +1215,7 @@ BRF:91
 BRH:91
 end_of_record
 TN:
-SF:C:\Users\Robert\Desktop\Apps\LostPets\LostPets - Web\src\app\components\user-ads\user-ads.component.ts
+SF:src\app\components\user-ads\user-ads.component.ts
 FN:40,(anonymous_0)
 FN:50,(anonymous_1)
 FN:59,(anonymous_3)
@@ -1324,7 +1324,7 @@ BRF:23
 BRH:23
 end_of_record
 TN:
-SF:C:\Users\Robert\Desktop\Apps\LostPets\LostPets - Web\src\app\components\user-profile\user-profile.component.ts
+SF:src\app\components\user-profile\user-profile.component.ts
 FN:40,(anonymous_0)
 FN:54,(anonymous_1)
 FN:64,(anonymous_3)
@@ -1512,7 +1512,7 @@ BRF:70
 BRH:70
 end_of_record
 TN:
-SF:C:\Users\Robert\Desktop\Apps\LostPets\LostPets - Web\src\app\components\users\users.component.ts
+SF:src\app\components\users\users.component.ts
 FN:29,(anonymous_0)
 FN:36,(anonymous_1)
 FN:43,(anonymous_3)
@@ -1576,7 +1576,7 @@ BRF:10
 BRH:10
 end_of_record
 TN:
-SF:C:\Users\Robert\Desktop\Apps\LostPets\LostPets - Web\src\app\shared\guards\auth.guard.ts
+SF:src\app\shared\guards\auth.guard.ts
 FN:18,(anonymous_0)
 FN:22,(anonymous_1)
 FNF:2
@@ -1616,7 +1616,7 @@ BRF:10
 BRH:10
 end_of_record
 TN:
-SF:C:\Users\Robert\Desktop\Apps\LostPets\LostPets - Web\src\app\shared\interceptors\error\error.interceptor.ts
+SF:src\app\shared\interceptors\error\error.interceptor.ts
 FN:17,(anonymous_0)
 FN:18,(anonymous_1)
 FNF:2
@@ -1639,7 +1639,7 @@ BRF:4
 BRH:4
 end_of_record
 TN:
-SF:C:\Users\Robert\Desktop\Apps\LostPets\LostPets - Web\src\app\shared\interceptors\jwt\jwt.interceptor.ts
+SF:src\app\shared\interceptors\jwt\jwt.interceptor.ts
 FN:18,(anonymous_0)
 FN:23,(anonymous_1)
 FN:35,(anonymous_2)
@@ -1674,7 +1674,7 @@ BRF:6
 BRH:6
 end_of_record
 TN:
-SF:C:\Users\Robert\Desktop\Apps\LostPets\LostPets - Web\src\app\shared\interceptors\timeout\timeout.interceptor.ts
+SF:src\app\shared\interceptors\timeout\timeout.interceptor.ts
 FN:18,(anonymous_0)
 FNF:1
 FNH:1
@@ -1693,7 +1693,7 @@ BRF:2
 BRH:2
 end_of_record
 TN:
-SF:C:\Users\Robert\Desktop\Apps\LostPets\LostPets - Web\src\app\shared\model\types\ad-status.ts
+SF:src\app\shared\model\types\ad-status.ts
 FN:1,(anonymous_0)
 FNF:1
 FNH:1
@@ -1709,7 +1709,7 @@ BRF:2
 BRH:2
 end_of_record
 TN:
-SF:C:\Users\Robert\Desktop\Apps\LostPets\LostPets - Web\src\app\shared\model\types\message-status.ts
+SF:src\app\shared\model\types\message-status.ts
 FN:1,(anonymous_0)
 FNF:1
 FNH:1
@@ -1726,7 +1726,7 @@ BRF:2
 BRH:2
 end_of_record
 TN:
-SF:C:\Users\Robert\Desktop\Apps\LostPets\LostPets - Web\src\app\shared\model\types\notification-severity.ts
+SF:src\app\shared\model\types\notification-severity.ts
 FN:1,(anonymous_0)
 FNF:1
 FNH:1
@@ -1744,7 +1744,7 @@ BRF:2
 BRH:2
 end_of_record
 TN:
-SF:C:\Users\Robert\Desktop\Apps\LostPets\LostPets - Web\src\app\shared\model\types\pet-status.ts
+SF:src\app\shared\model\types\pet-status.ts
 FN:1,(anonymous_0)
 FNF:1
 FNH:1
@@ -1760,7 +1760,7 @@ BRF:2
 BRH:2
 end_of_record
 TN:
-SF:C:\Users\Robert\Desktop\Apps\LostPets\LostPets - Web\src\app\shared\model\types\role.ts
+SF:src\app\shared\model\types\role.ts
 FN:1,(anonymous_0)
 FNF:1
 FNH:1
@@ -1776,7 +1776,7 @@ BRF:2
 BRH:2
 end_of_record
 TN:
-SF:C:\Users\Robert\Desktop\Apps\LostPets\LostPets - Web\src\app\shared\model\types\sex.ts
+SF:src\app\shared\model\types\sex.ts
 FN:1,(anonymous_0)
 FNF:1
 FNH:1
@@ -1792,7 +1792,7 @@ BRF:2
 BRH:2
 end_of_record
 TN:
-SF:C:\Users\Robert\Desktop\Apps\LostPets\LostPets - Web\src\app\shared\model\types\user-status.ts
+SF:src\app\shared\model\types\user-status.ts
 FN:1,(anonymous_0)
 FNF:1
 FNH:1
@@ -1808,7 +1808,7 @@ BRF:2
 BRH:2
 end_of_record
 TN:
-SF:C:\Users\Robert\Desktop\Apps\LostPets\LostPets - Web\src\app\shared\services\ad\ad.service.ts
+SF:src\app\shared\services\ad\ad.service.ts
 FN:17,(anonymous_0)
 FN:20,(anonymous_1)
 FN:24,(anonymous_3)
@@ -1849,7 +1849,7 @@ BRF:0
 BRH:0
 end_of_record
 TN:
-SF:C:\Users\Robert\Desktop\Apps\LostPets\LostPets - Web\src\app\shared\services\chat\chat.service.ts
+SF:src\app\shared\services\chat\chat.service.ts
 FN:16,(anonymous_0)
 FN:19,(anonymous_1)
 FNF:2
@@ -1865,7 +1865,7 @@ BRF:0
 BRH:0
 end_of_record
 TN:
-SF:C:\Users\Robert\Desktop\Apps\LostPets\LostPets - Web\src\app\shared\services\error-handler\error-handler.service.ts
+SF:src\app\shared\services\error-handler\error-handler.service.ts
 FN:18,(anonymous_0)
 FN:21,(anonymous_1)
 FN:32,(anonymous_2)
@@ -1904,7 +1904,7 @@ BRF:10
 BRH:10
 end_of_record
 TN:
-SF:C:\Users\Robert\Desktop\Apps\LostPets\LostPets - Web\src\app\shared\services\message\message.service.ts
+SF:src\app\shared\services\message\message.service.ts
 FN:35,(anonymous_0)
 FN:43,(anonymous_1)
 FN:47,(anonymous_2)
@@ -1992,7 +1992,7 @@ BRF:8
 BRH:8
 end_of_record
 TN:
-SF:C:\Users\Robert\Desktop\Apps\LostPets\LostPets - Web\src\app\shared\services\notifications\notifications.service.ts
+SF:src\app\shared\services\notifications\notifications.service.ts
 FN:21,(anonymous_0)
 FN:25,(anonymous_1)
 FN:34,(anonymous_2)
@@ -2024,7 +2024,7 @@ BRF:0
 BRH:0
 end_of_record
 TN:
-SF:C:\Users\Robert\Desktop\Apps\LostPets\LostPets - Web\src\app\shared\services\spinner\spinner.service.ts
+SF:src\app\shared\services\spinner\spinner.service.ts
 FN:17,(anonymous_0)
 FN:21,(anonymous_1)
 FN:25,(anonymous_2)
@@ -2049,7 +2049,7 @@ BRF:0
 BRH:0
 end_of_record
 TN:
-SF:C:\Users\Robert\Desktop\Apps\LostPets\LostPets - Web\src\app\shared\services\user\user.service.ts
+SF:src\app\shared\services\user\user.service.ts
 FN:28,(anonymous_0)
 FN:31,(anonymous_1)
 FN:34,(anonymous_2)
@@ -2177,7 +2177,7 @@ BRF:19
 BRH:19
 end_of_record
 TN:
-SF:C:\Users\Robert\Desktop\Apps\LostPets\LostPets - Web\src\environments\environment.ts
+SF:src\environments\environment.ts
 FNF:0
 FNH:0
 DA:3,1
@@ -2187,7 +2187,7 @@ BRF:0
 BRH:0
 end_of_record
 TN:
-SF:C:\Users\Robert\Desktop\Apps\LostPets\LostPets - Web\src\environments\google-maps.environment.ts
+SF:src\environments\google-maps.environment.ts
 FNF:0
 FNH:0
 DA:1,1
