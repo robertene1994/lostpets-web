@@ -62,7 +62,7 @@ jobs:
           path: coverage
 
       - name: Build documentation
-        run: npm run build:doc
+        run: npm run build:docs
 
       - name: Archive documentation
         uses: actions/upload-artifact@v2
