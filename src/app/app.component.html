@@ -2,7 +2,7 @@
     <nav class="navbar navbar-expand-lg navbar-dark custom-navbar">
         <div class="container">
             <a class="navbar-brand" routerLink="/ads">
-                <i class="icon fa fa-paw fa-fw"></i>LostPets
+                <span class="icon fa fa-paw fa-fw"></span>LostPets
             </a>
             <button class="navbar-toggler" type="button"
                 data-toggle="collapse" data-target="#navbar"
@@ -18,7 +18,7 @@
                             id="link-login"
                             [class.active]="router.url.startsWith('/login')"
                             routerLink="/login">
-                            <i class="fa fa-sign-in fa-fw"></i>Iniciar Sesión
+                            <span class="fa fa-sign-in fa-fw"></span>Iniciar Sesión
                             <span class="sr-only">(current)</span>
                         </a>
                     </li>
@@ -27,7 +27,7 @@
                             id="link-signup"
                             [class.active]="router.url.startsWith('/signup')"
                             routerLink="/signup">
-                            <i class="fa fa-user-plus fa-fw"></i>Registrarse
+                            <span class="fa fa-user-plus fa-fw"></span>Registrarse
                         </a>
                     </li>
                 </ul>
@@ -37,7 +37,7 @@
                             id="link-ads"
                             [class.active]="router.url.startsWith('/ads')"
                             routerLink="/ads">
-                            <i class="fa fa-list-ul fa-fw"></i>Anuncios
+                            <span class="fa fa-list-ul fa-fw"></span>Anuncios
                         </a>
                     </li>
                     <li *ngIf="userService.getLoggedUserSync().role === 'USER'" class="nav-item">
@@ -45,7 +45,7 @@
                             id="link-user-ads"
                             [class.active]="router.url.startsWith('/user-ads')"
                             routerLink="/user-ads">
-                            <i class="fa fa-list-ol fa-fw"></i>Mis Anuncios
+                            <span class="fa fa-list-ol fa-fw"></span>Mis Anuncios
                         </a>
                     </li>
                     <li *ngIf="userService.getLoggedUserSync().role === 'USER'" class="nav-item">
@@ -53,7 +53,7 @@
                             id="link-add-ad"
                             [class.active]="router.url.startsWith('/add-ad')"
                             (click)="goToAddAd()">
-                            <i class="fa fa-plus fa-fw"></i>Nuevo Anuncio
+                            <span class="fa fa-plus fa-fw"></span>Nuevo Anuncio
                         </a>
                     </li>
                     <li *ngIf="userService.getLoggedUserSync().role === 'ADMIN'" class="nav-item">
@@ -61,7 +61,7 @@
                             id="link-users"
                             [class.active]="router.url.startsWith('/users')"
                             routerLink="/users">
-                            <i class="fa fa-users fa-fw"></i>Usuarios
+                            <span class="fa fa-users fa-fw"></span>Usuarios
                         </a>
                     </li>
                     <li class="nav-item">
@@ -69,7 +69,7 @@
                             id="link-user-chats"
                             [class.active]="router.url.startsWith('/user-chats')"
                             routerLink="/user-chats">
-                            <i class="fa fa-comments fa-fw"></i>Chats
+                            <span class="fa fa-comments fa-fw"></span>Chats
                         </a>
                     </li>
                     <li class="nav-item">
@@ -77,7 +77,7 @@
                             id="link-user-profile"
                             [class.active]="router.url.startsWith('/user-profile')"
                             (click)="goToUserProfile()">
-                            <i class="fa fa-user-circle fa-fw"></i>
+                            <span class="fa fa-user-circle fa-fw"></span>
                             {{userService.getLoggedUserSync().firstName}}
                         </a>
                     </li>
@@ -85,7 +85,7 @@
                         <a class="btn btn-navbar btn-logout"
                             id="link-logout"
                             (click)="logOut()">
-                            <i class="fa fa-sign-out fa-fw"></i>Cerrar Sesión
+                            <span class="fa fa-sign-out fa-fw"></span>Cerrar Sesión
                         </a>
                     </li>
                 </ul>
@@ -99,7 +99,7 @@
     <div class="loader-overlay"></div>
     <div class="loader-centered loader-ring">
         <div>
-            <img class="loader-logo" src="/assets/logo.svg">
+            <img class="loader-logo" src="/assets/logo.svg" alt="Imagen que indica que el sistema está trabajando">
         </div>
         <div class="ring"></div>
         <div class="ring"></div>
