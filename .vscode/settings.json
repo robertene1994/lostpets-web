@@ -1,4 +1,9 @@
 {
     "editor.formatOnSave": true,
-    "prettier.jsxSingleQuote": true
+    "prettier.jsxSingleQuote": true,
+    "sonarlint.connectedMode.project": {
+        "connectionId": "lostpets-web",
+        "projectKey": "robertene1994_lostpets-web"
+    }
+
 }
