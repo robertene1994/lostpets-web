@@ -44,7 +44,7 @@ jobs:
           CI: true
           GOOGLE_MAPS_API_KEY: ${{ secrets.GOOGLE_MAPS_API_KEY }}
 
-      - name: Build 🏗️
+      - name: Build ⚒️
         run: npm run build:ci
         env:
           GOOGLE_MAPS_API_KEY: ${{ secrets.GOOGLE_MAPS_API_KEY }}
